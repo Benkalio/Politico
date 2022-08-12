@@ -86,7 +86,6 @@ main {
 /* ****************** */
 
 section > h1 {
-  font-family: 'Roboto', sans-serif;
   font-weight: 600;
   font-size: 2.6rem;
   letter-spacing: 0.05px;
@@ -125,20 +124,62 @@ button {
 }
 
 /* ******************* */
-/* Second Section  */
+/* Styling form  */
 /* ******************* */
-
 .container {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
+  position: absolute;
+  margin: 2rem 0;
+  width: 80%;
+  margin: 0 auto;
 }
 
-.container > h3 {
+form > h3 {
   font-weight: 400;
   font-size: 1.6rem;
+  margin-bottom: 20px;
 }
 
-.sign-up {
-  
+.form-group {
+  position: relative;
+  padding: 1rem 0;
+  margin-top: 1.6rem;
+  width: 100%;
+}
+
+.form-field {
+  font-size: 1.2rem;
+  color: #333;
+  width: 90%;
+  border: 0;
+  border-bottom: 0.5px solid #333;
+  outline: 0;
+  padding: 0.5rem 0;
+  background: transparent;
+}
+
+.form-label {
+  position: absolute;
+  display: block;
+  top: 0;
+  font-size: 1rem;
+  color: #9b9b9b;
+}
+
+.dob {
+  display: inline;
+  margin: 2px 8px;
+  width: 40%;
+}
+
+.cta {
+  text-decoration: none;
+  color: #fff;
+  background-color: #09a535;
+  padding: 1.2rem;
+  border: 0;
+  border-radius: 2.8rem;
+
+  text-decoration: none;
+  font-size: 1.6rem;
+  align-content: center;
 }
