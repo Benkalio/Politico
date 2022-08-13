@@ -19,6 +19,29 @@ body {
   color: #156715;
 }
 
+.container {
+  position: relative;
+  width: 90%;
+  background-color: #fff;
+  min-height: 100vh;
+  overflow: hidden;
+}
+/* Responsive screens */
+@media (min-width: 425px) {
+  .container {
+    width: 375px;
+    margin: 60px auto;
+  }
+}
+
+.form-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 10px;
+  left: 20px;
+}
+
 .title {
   font-size: 1.8rem;
   color: #333;
@@ -33,15 +56,8 @@ body {
 
 .create-act-link {
   font-size: 1rem;
+  color: blue;
   text-decoration: none;
-}
-
-.container {
-  position: absolute;
-  width: 90%;
-  background-color: #fff;
-  min-height: 100vh;
-  overflow: hidden;
 }
 
 form {
@@ -51,22 +67,14 @@ form {
   align-items: center;
 }
 
-.form-container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 10px;
-  left: 20px;
-}
-
 input {
   border: 0;
   border-bottom: 0.5px solid #333;
   outline: 0;
   font-size: 1rem;
   color: #333;
-  font-weight: 600;
-  line-height: 1;
+  font-weight: 500;
+  padding: 0.5rem 0;
 }
 
 .input-label {
@@ -127,6 +135,7 @@ input {
   justify-content: center;
 }
 .social-icon {
+  text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
