@@ -19,13 +19,14 @@ body {
 }
 
 .container {
+  position: relative;
   width: 90%;
   margin: 0 auto;
-  background-color: #ebf8f3;
+  background-color: #f7f7f7;
   min-height: 80vh;
   overflow: hidden;
-  border: none;
   border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 /* Responsive screens */
 @media (min-width: 425px) {
@@ -58,6 +59,9 @@ body {
   font-size: 1rem;
   color: blue;
   text-decoration: none;
+}
+.create-act-link:hover {
+  color: #206e50;
 }
 
 form {

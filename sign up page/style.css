@@ -56,7 +56,6 @@
 body {
   height: 100vh;
   font-family: 'Roboto', sans-serif;
-  margin: auto 20px;
 }
 
 .logo {
@@ -70,15 +69,27 @@ body {
 
 .container {
   position: relative;
-  width: 90%;
+  width: 375px;
   margin: 0 auto;
-  background-color: #fff;
-  min-height: 100vh;
+  background-color: #f7f7f7;
+  min-height: 150vh;
+  border-radius: 8px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 @media (min-width: 425px) {
   .container {
     width: 375px;
   }
+}
+
+.form-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 10px;
+  left: 5px;
+  margin: 0 auto;
 }
 
 /* ****************** */
@@ -87,8 +98,13 @@ body {
 
 .title {
   font-weight: 600;
-  font-size: 2.2rem;
+  font-size: 1.6rem;
   margin: 10px;
+}
+@media (min-width: 425) {
+  .title {
+    font-size: 2.2rem;
+  }
 }
 
 .signup-form > p {
@@ -151,13 +167,6 @@ button {
 /* Styling form  */
 /* ******************* */
 
-.form-container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 10px;
-}
-
 .or {
   margin: 20px 0;
   font-size: 1rem;
@@ -169,6 +178,7 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-left: 20px;
 }
 
 h3 {
@@ -236,4 +246,8 @@ h3 {
   padding: 0.8rem;
   margin: 20px 0;
   transition: all 0.5s;
+}
+
+.btn:hover {
+  background-color: #206e50;
 }
