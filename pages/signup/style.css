@@ -76,7 +76,7 @@ body {
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-@media (min-width: 425px) {
+@media (min-width: 27em) {
   .container {
     width: 375px;
   }
@@ -100,7 +100,7 @@ body {
   font-size: 1.6rem;
   margin: 10px;
 }
-@media (min-width: 425) {
+@media (min-width: 27em) {
   .title {
     font-size: 2.2rem;
   }

@@ -19,7 +19,7 @@
   min-height: 150vh;
   overflow: hidden;
 }
-@media (min-width: 425px) {
+@media (min-width: 27em) {
   .container {
     width: 100%;
   }
@@ -31,11 +31,10 @@
 .form-container {
   font-size: 80%;
   width: 100%;
-  padding: 10px;
+  padding: 10px 5px;
 }
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .form-container {
-    width: 80%;
   }
 }
 
@@ -44,7 +43,7 @@ h1 {
   font-size: 1.2rem;
   text-align: center;
 }
-@media (min-width: 768) {
+@media (min-width: 48em) {
   h1 {
     font-size: 2.4rem;
   }
@@ -52,7 +51,7 @@ h1 {
 
 .form-container > p {
   padding: 0 5px;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 
 .email {
@@ -61,8 +60,24 @@ h1 {
 
 input {
   background-color: transparent;
+  padding: 5px 5px;
+  margin: 0 20px 5px 0;
   border: none;
   outline: none;
   border-bottom: 1px #333 groove;
-  width: 50%;
+  width: 70%;
+}
+
+.email-link {
+  margin: 20px 0;
+}
+
+.reset-password {
+  text-decoration: none;
+  font-size: 1rem;
+  border: none;
+  background-color: #156715;
+  border-radius: 50px;
+  color: #fff;
+  padding: 5px 20px;
 }
