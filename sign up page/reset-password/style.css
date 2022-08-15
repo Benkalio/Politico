@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.logo {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.8rem;
+  margin-bottom: 1.2rem;
+  color: #156715;
+}
+
+.container {
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 150vh;
+  overflow: hidden;
+}
+@media (min-width: 425px) {
+  .container {
+    width: 100%;
+  }
+  h1 {
+    font-size: 2.6rem;
+  }
+}
+
+.form-container {
+  font-size: 80%;
+  width: 100%;
+  padding: 10px;
+}
+@media (min-width: 768px) {
+  .form-container {
+    width: 80%;
+  }
+}
+
+h1 {
+  margin: 20px auto;
+  font-size: 1.2rem;
+  text-align: center;
+}
+@media (min-width: 768) {
+  h1 {
+    font-size: 2.4rem;
+  }
+}
+
+.form-container > p {
+  padding: 0 5px;
+  font-size: 0.7rem;
+}
+
+.email {
+  margin-top: 20px;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px #333 groove;
+  width: 50%;
+}

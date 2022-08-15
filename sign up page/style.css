@@ -59,8 +59,8 @@ body {
 }
 
 .logo {
-  font-size: 1rem;
   font-family: 'Rubik', sans-serif;
+  font-size: 1rem;
   font-weight: 400;
   padding: 0.8rem;
   margin-bottom: 1.2rem;
@@ -73,7 +73,6 @@ body {
   margin: 0 auto;
   background-color: #f7f7f7;
   min-height: 150vh;
-  border-radius: 8px;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
