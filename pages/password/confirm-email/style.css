@@ -21,7 +21,6 @@ body {
   font-family: 'Roboto', sans-serif;
   width: 100%;
   margin: 0 auto;
-  min-height: 150vh;
   overflow: hidden;
 }
 @media (min-width: 27em) {
