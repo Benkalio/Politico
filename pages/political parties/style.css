@@ -55,39 +55,37 @@
 body {
   height: 200vh;
   font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
 }
 
 /*******************/
 /* HEADER */
 /*******************/
 .header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #fff;
 
-  /* Because we want header to be sticky later */
-  height: 7.2rem;
-  padding: 0 4.8rem;
-  position: relative;
+  /*  to make the header sticky later */
+  height: 6rem;
+  padding: 0 1.8rem;
 }
 
 .logo {
-  width: 5rem;
-  height: 4.2rem;
-}
-
-main {
-  position: relative;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #156715;
 }
 
 /* ************ */
 /* NAVIGATION  */
 /* ************ */
-.navigation {
-  position: absolute;
-  top: 0;
-  left: 0;
+.main-nav .nav-open {
+  flex-direction: column;
   width: 100%;
   height: 100vh;
   transform: translateX(100%);
@@ -96,17 +94,30 @@ main {
   justify-content: center;
   transition: all 0.5s ease-in;
 
+  /* Hidden from view */
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
 }
-.main-nav {
-  flex-direction: column;
-  gap: 4.8rem;
+
+.main-nav-link{
+  display: none;
+  list-style: none;
 }
+/* .nav-open {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+/* .nav-open .main-nav {
+  /* } */
 
 .btn-menu {
-  display: block;
   cursor: pointer;
   background-color: #fff;
   border: none;
@@ -175,16 +186,6 @@ main {
   width: 2rem;
   height: 2rem;
 }
-
-table, td, th {
-  border-collapse: collapse;
-}
-
-thead {
-  background-color: #156715;
-  color: #fff;
-}
-
 .table {
   width: 100%;
   margin: 1.1rem auto;
@@ -196,8 +197,20 @@ thead {
   width: 10rem;
 }
 
-th,td {
+table,
+td,
+th {
+  border-collapse: collapse;
+  position: absolute;
+}
+
+thead {
+  background-color: #156715;
+  color: #fff;
+}
+
+th,
+td {
   padding: 1rem;
   border: 0.06rem solid;
 }
-
