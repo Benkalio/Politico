@@ -1,3 +1,42 @@
+
 @media (min-width: 48em) {
+  body {
+    height: 100vh;
+  }
+  /* at least 768px */
+  .header {
+    width: 100%;
+  }
+
+  .main-nav {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateX(0);
+  }
   
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 2.2rem;
+    padding: 0 1rem;
+    align-items: center;
+  }
+  .main-nav-link {
+    text-decoration: none;
+    display: inline-block;
+    color: #156715;
+    font-size: 1.2rem;
+    font-weight: 500;
+
+  }
+
+  .btn-menu {
+    display: none;
+  }
+
+  .footer {
+    position: fixed;
+  }
 }
