@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  height: 100vh;
+
+  font-family: 'Roboto', sans-serif;
+}
+
+.logo {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #156715;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.2rem;
+  gap: 1.6rem;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  opacity: 0;
+
+  visibility: hidden;
+  pointer-events: none;
+}
+.main-nav-link {
+  text-decoration: none;
+}
+
+.btn-menu {
+  height: 2rem;
+  width: 2.5rem;
+  background-color: #fff;
+  border: none;
+}
+
+.close {
+  display: none;
+}
+
+.container {
+  width: 100%;
+  position: relative;
+}
+
+.profile-container {
+  width: 80%;
+  background-color: #f2f2f2;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  margin: 10px auto;
+  color: #333;
+  padding: 2rem 1rem;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-arrow-back {
+  font-size: 2.5rem;
+  background-color: transparent;
+  text-decoration: none;
+  border: none;
+}
+
+.back-btn {
+  color: #333;
+}
+
+.head-primary {
+  font-size: 1.8rem;
+  margin-left: -2rem;
+}

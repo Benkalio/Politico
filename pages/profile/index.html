@@ -20,7 +20,87 @@
     <title>Profile</title>
   </head>
   <body>
-    
+    <header class="header">
+      <a class="logo" href="#home">Politico</a>
 
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="#" class="main-nav-link">Home</a></li>
+          <li><a href="#" class="main-nav-link">About</a></li>
+          <li><a href="#" class="main-nav-link">Vote</a></li>
+          <li><a href="#" class="main-nav-link">Offices</a></li>
+          <li><a href="#" class="main-nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="btn-menu">
+        <i class="fa-solid fa-bars" name="menu-outline"></i>
+        <i class="fa-solid fa-xmark close" name="close-outline"></i>
+      </button>
+    </header>
+    <div class="container">
+      <div class="profile-container">
+        <div class="profile-header">
+          <a href="#" class="btn-arrow-back">
+            <i class="fa-solid fa-circle-chevron-left back-btn"></i>
+          </a>
+          <h1 class="head-primary">User Profile</h1>
+
+          <i class="fa-solid fa-user"></i>
+
+        </div>
+        
+        <div class="profile-body">
+          <div class="user-info">
+            <h3 class="user-name">Name</h3>
+            <p id="full-name"></p>
+          </div>
+          <div class="user-info">
+            <h3 class="email">Email</h3>
+            <p id="user-email"></p>
+          </div>
+          <div class="user-info">
+            <h3 class="contact-address">Address</h3>
+            <p id="user-address"></p>
+          </div>
+          <div class="user-info">
+            <h3 class="phonenumber">Phone</h3>
+            <p id="user-phone"></p>
+          </div>
+        </div>
+        <button class="edit-profile">Edit</button>
+        <div class="profile-footer">
+          <a
+            href="/pages/password/reset-password/index.html"
+            class="change-password"
+            >Change Password</a
+          >
+          <a class="change-password" href="/pages/signin/index.html">Logout</a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="copyright">
+          <a class="logo" href="#Home">Politico</a>
+
+          <div class="copy">
+            <p>Copyright &copy 2022</p>
+          </div>
+        </div>
+        <div class="contacts">
+          <div class="social-links">
+            <p>Contact us</p>
+            <p>+234(0)8122334456</p>
+            <a href="http://">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="http://">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
