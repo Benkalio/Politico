@@ -73,6 +73,8 @@ nav {
   background-color: #ebf8f3;
   color: #103728;
   grid-row: 1/ -1;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
 menu {
@@ -81,9 +83,11 @@ menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  margin-left: 1rem;
   gap: 0.8rem;
   padding: 0 2.5rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
 .btn-toggle:first-child {
@@ -106,10 +110,11 @@ section {
   background-color: #ebf8f3;
   width: fit-content;
   padding: 2rem 2rem;
-  margin: 0 1rem;
+  margin: 1rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .function > button {
@@ -124,7 +129,8 @@ main {
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   position: relative;
-  width: 90%;
+  width: 95%;
+  margin-top: 1rem;
 }
 .container {
   position: relative;
