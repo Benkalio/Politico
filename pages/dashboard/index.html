@@ -1,13 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard</title>
-</head>
-<body>
-  
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/2b70abae1b.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="queries.css" />
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <nav class="dashboard-nav">Politico</nav>
+    <menu>
+      <button class="btn-toggle">
+        <!-- <i class="fa-solid fa-users"></i> -->
+        Registered Voters
+      </button>
+      <button class="btn-toggle">
+        <!-- <i class="fa-solid fa-file-plus"></i> -->
+        Candidates
+      </button>
+      <button class="btn-toggle">
+        <!-- <i class="fa-solid fa-building-circle-check"></i> -->
+        Government Offices
+      </button>
+    </menu>
+
+    <section>
+      <div class="function">
+        <button>
+          <i class="fa-solid fa-layer-group"></i>
+          Dashboard
+        </button>
+      </div>
+      <div class="function">
+        <button>
+          <i class="fa-solid fa-file-plus"></i>
+          Create Political Party
+        </button>
+      </div>
+      <div class="function">
+        <button>
+          <i class="fa-solid fa-circle-plus"></i>
+          Edit Political Party
+        </button>
+      </div>
+      <div class="function">
+        <button>
+          <i class="fa-solid fa-folder-plus"></i>
+          Add Government Office
+        </button>
+      </div>
+      <div class="function">
+        <button>
+          <i class="fa-solid fa-screwdriver-wrench"></i>
+          Settings
+        </button>
+      </div>
+    </section>
+    <main>
+      <div class="container">
+        <h1 class="heading-primary" id="voters">Registered Users</h1>
+        <div class="user-container">
+          <p>User 1</p>
+          <p>User 1</p>
+          <p>User 1</p>
+          <p>User 1</p>
+          <p>User 1</p>
+          <p>User 1</p>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
