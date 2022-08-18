@@ -25,76 +25,79 @@
     </div>
 
     <div class="container">
-      <div class="first-section">
-        <h1>Create an account</h1>
-        <p>Account already exist? <a class="signIn" href="#">Sign in</a></p>
-
-        <h3>Connect with Social</h3>
-        <div class="social-auth">
-          <button>
-            <a href="http://">
-              <i class="fa-brands fa-google"></i>
-            </a>
-          </button>
-          <button>
-            <a href="http://">
-              <i class="fa-brands fa-facebook"></i>
-            </a>
-          </button>
-        </div>
-      </div>
-      <div class="Signup-form">
+      <div class="form-container">
         <form action="submit">
-          <h2>Sign up with Email</h2>
-          <div class="form-group">
+          <h1 class="title">Create an account</h1>
+          <p>
+            Already have an account?
+            <a class="signin" href="/signin/index.html">Sign in</a>
+          </p>
+
+          <p class="social-text">Connect with Social</p>
+          <div class="social">
+            <a href="http://" class="social-icon">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="http://" class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="http://" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+
+          <p class="or">OR</p>
+          <h3>Sign up with Email</h3>
+          <div class="input-field">
             <label for="email" class="form-label">Email address</label>
             <input type="input" class="form-field" required />
           </div>
-          <div class="form-group">
+          <div class="input-field">
             <label for="first-name" class="form-label">First name</label>
             <input type="input" class="form-field" required />
           </div>
-          <div class="form-group">
+          <div class="input-field">
             <label for="last-name" class="form-label">Last name</label>
             <input type="input" class="form-field" required />
           </div>
-          <div class="form-group">
+          <div class="input-field">
             <label for="contact-address" class="form-label"
               >Contact address</label
             >
             <input type="input" class="form-field" required />
           </div>
-          <div class="form-group">
+          <div class="input-field">
             <label for="Password" class="form-label">Password</label>
             <input type="input" class="form-field" id="password" required />
           </div>
-          <div class="form-group">
+          <div class="input-field">
             <label for="birthday" class="form-label">Date of birth</label>
-            <input
-              type="input"
-              class="form-field dob"
-              placeholder="Month"
-              required
-            />
-            <input
-              type="input"
-              class="form-field dob"
-              placeholder="Year"
-              required
-            />
+            <div class="birthday">
+              <input
+                type="month"
+                class="form-field"
+                placeholder="Month"
+                required
+              />
+              <input
+                type="year"
+                class="form-field dob"
+                placeholder="Year"
+                required
+              />
+            </div>
           </div>
-          <div class="form-group">
-            <label for="email" class="form-label">Country</label>
-            <button><i class="fa-arrow-down"></i></button>
+          <div class="input-field">
+            <label for="email" id="country" class="form-label">Country</label>
             <input type="input" class="form-field" required />
           </div>
 
-          <p>
+          <p class="terms">
             By clicking Create account, I agree to have and accepted the
             <a class="policy" href="#">Terms of Use</a> and
             <a class="policy" href="#">Privacy Policy</a>.
           </p>
-          <input href="#" class="cta" value="Create account" />
+          <button id="sign-up-button" class="btn">Create account</button>
         </form>
       </div>
     </div>

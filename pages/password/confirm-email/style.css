@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.logo {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.8rem;
+  margin-bottom: 1.2rem;
+  color: #156715;
+}
+
+.container {
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+@media (min-width: 27em) {
+  .container {
+    width: 60%;
+  }
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.8rem;
+}
+@media (min-width: 425px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+}
+
+.container > p {
+  position: relative;
+  color: #333;
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+}
+@media (min-width: 27em) {
+  .container > p {
+    font-size: 1.2rem;
+  }
+}
+
+.btn {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.resend-email {
+  text-decoration: none !important;
+  background-color: #156715;
+  color: #fff;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 50px;
+}
+@media (min-width: 27em) {
+  .resend-email {
+    font-size: 1.2rem;
+  }
+}
