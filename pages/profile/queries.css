@@ -1,6 +1,25 @@
 
-@media (width: 48rem) {
-  html {
-    font-size: 80%;
+@media (min-width: 48rem) {
+  /* 768px */
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 4.8rem;
+  }
+
+  .main-nav-link {
+    display: inline-block;
+  }
+
+  .btn-menu[name="menu-outline"] {
+    display: none;
+  }
+
+  .container {
+    width: 40%;
+  }
+
+  .footer {
+
   }
 }

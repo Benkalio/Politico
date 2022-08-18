@@ -4,12 +4,14 @@
   box-sizing: border-box;
 }
 
+html {
 
+}
 
 body {
   position: relative;
   overflow-x: hidden;
-  height: 100%;
+  height: fit-content;
 
   font-family: 'Roboto', sans-serif;
 }
@@ -30,7 +32,7 @@ body {
   gap: 1.6rem;
 }
 
-.nav-list {
+.main-nav {
   display: flex;
   justify-content: space-between;
   list-style: none;
@@ -44,9 +46,8 @@ body {
 }
 
 .btn-menu {
-  height: 2rem;
-  width: 2.5rem;
-  background-color: #fff;
+  font-size: 2.4rem;
+  color: #333;
   border: none;
 }
 
