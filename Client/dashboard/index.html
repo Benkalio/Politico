@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/2b70abae1b.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="queries.css" />
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <nav class="logo">
+      <p>Politico</p>
+    </nav>
+    <menu class="top-menu">
+      <button class="btn-toggle" id="voters-btn">
+        <!-- <i class="fa-solid fa-users"></i> -->
+        Registered Voters
+      </button>
+      <button class="btn-toggle" id="candidate-btn">
+        <!-- <i class="fa-solid fa-file-plus"></i> -->
+        Candidates
+      </button>
+      <button class="btn-toggle" id="office-btn">
+        <!-- <i class="fa-solid fa-building-circle-check"></i> -->
+        Government Offices
+      </button>
+    </menu>
+
+    <section>
+      <div class="dashboard-menu">
+        <h2>Admin</h2>
+        <div class="function">
+          <button>
+            <i class="fa-solid fa-layer-group"></i>
+            Dashboard
+          </button>
+        </div>
+        <div class="function">
+          <button>
+            <i class="fa-solid fa-file-plus"></i>
+            Create Political Party
+          </button>
+        </div>
+        <div class="function">
+          <button>
+            <i class="fa-solid fa-circle-plus"></i>
+            Edit Political Party
+          </button>
+        </div>
+        <div class="function">
+          <button>
+            <i class="fa-solid fa-folder-plus"></i>
+            Add Government Office
+          </button>
+        </div>
+        <div class="function">
+          <button>
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            Settings
+          </button>
+        </div>
+      </div>
+    </section>
+    <main>
+      <div class="container">
+        <div class="user-container">
+          <h2 class="heading-primary" id="voters">Registered Users</h2>
+          <p>User 1</p>
+          <p>User 2</p>
+          <p>User 3</p>
+          <p>User 4</p>
+          <p>User 5</p>
+          <!-- <p>User 6</p>
+          <p>User 7</p>
+          <p>User 8</p> -->
+        </div>
+        <div class="candidate-container">
+          <h2>Candidates</h2>
+          <div class="candidate">
+            <p>Alhaji Atiku Abubakar</p>
+            <img
+              class="candidate-img"
+              src="/pages/images/ATIKU-NEW.png"
+              alt=""
+            />
+            <img
+              class="candidate-img"
+              src="/pages/images/PDP-logo.png"
+              alt=""
+            />
+          </div>
+
+          <div class="candidate">
+            <p>Bola Asiwaju Tinubu</p>
+            <img class="candidate-img" src="/pages/images/Tinubu.png" alt="" />
+            <img
+              class="candidate-img"
+              src="/pages/images/apc-logo.png"
+              alt=""
+            />
+          </div>
+
+          <div class="candidate">
+            <p>Peter Gregory Obi</p>
+            <img
+              class="candidate-img"
+              src="/pages/images/Peter-Obi.png"
+              alt=""
+            />
+            <img
+              class="candidate-img"
+              src="/pages/images/labour-logo.png"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="office-container">
+          <h2>Government Offices Open for Elections</h2>
+          <div class="posts-container">
+            <div class="post">President</div>
+
+            <div class="post">House of Representation</div>
+
+            <div class="post">House of Assembly</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

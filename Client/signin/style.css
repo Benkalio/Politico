@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+
+.logo {
+  font-size: 1rem;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  padding: 0.8rem;
+  margin-bottom: 1.2rem;
+  color: #156715;
+}
+
+.container {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  background-color: #f7f7f7;
+  min-height: 80vh;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+/* Responsive screens */
+@media (min-width: 27em) {
+  .container {
+    width: 375px;
+    margin: 60px auto;
+  }
+}
+
+.form-container {
+  width: 100%;
+  height: 100%;
+  top: 20px;
+  left: 5px;
+}
+
+.title {
+  font-size: 1.8rem;
+  color: #333;
+  margin: 20px 0;
+}
+
+.create-account {
+  font-size: 1rem;
+  color: #333;
+  margin: 10px;
+}
+
+.create-act-link {
+  font-size: 1rem;
+  color: blue;
+  text-decoration: none;
+}
+.create-act-link:hover {
+  color: #206e50;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  border: 0;
+  border-bottom: 0.5px solid #333;
+  outline: 0;
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+  padding: 0.5rem 0;
+}
+
+.input-label {
+  top: 0;
+  font-size: 1rem;
+  color: #9b9b9b;
+}
+
+.input-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  padding: 0.6rem 0;
+  margin-top: 0.6rem;
+  background: transparent;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.forgot-password {
+  color: #333;
+  text-decoration: none;
+  font-size: 0.8rem;
+  margin: 10px;
+}
+
+.btn {
+  justify-content: center;
+  align-items: center;
+  width: 10rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  border: none;
+  background-color: #36b886;
+  color: #fff;
+  border-radius: 3rem;
+  padding: 0.8rem;
+  margin: 10px;
+  transition: all 0.5s;
+}
+
+.btn:hover {
+  background-color: #206e50;
+}
+.btn::after {
+  background-color: #1b5c43;
+}
+
+.social-text {
+  margin: 20px 0;
+  padding: 1.2rem 0;
+  font-weight: 400;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+}
+.social-icon {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 46px;
+  width: 46px;
+  margin: 0 0.8rem;
+  border: 0.8px solid #333;
+  font-size: 1.2rem;
+  color: #333;
+  border-radius: 50%;
+  transition: all 0.5s;
+}
+
+.social-icon:hover {
+  color: #206e50;
+  border-color: #206e50;
+}

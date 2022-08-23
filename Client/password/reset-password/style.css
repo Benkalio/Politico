@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.logo {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.8rem;
+  margin-bottom: 1.2rem;
+  color: #156715;
+}
+
+.container {
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+@media (min-width: 48em) {
+  .container {
+    width: 60%;
+  }
+}
+
+.form-container {
+  margin: 0 auto;
+  width: 80%;
+  padding: 10px;
+  border: none;
+  background-color: #f7f7f7;
+  min-height: 60vh;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.title {
+  margin: 20px 0;
+  font-size: 1.4rem;
+}
+
+.input-pass {
+  width: 100%;
+  padding: 10px 5px;
+  margin: 10px 0;
+}
+
+input {
+  width: 90%;
+  font-size: 1rem;
+  outline: none;
+  background: transparent;
+  border: none;
+  border-bottom: 1px #333 solid;
+}
+
+.reset-password {
+  margin: 20px 0;
+  width: 90%;
+}
+
+.reset-password-link {
+  text-align: center;
+  padding: 10px 48px;
+  background-color: #156715;
+  border-radius: 50px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.reset-password-link:hover {
+  background-color: #164a36;
+}

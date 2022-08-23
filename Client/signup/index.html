@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&family=Rubik:ital,wght@0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/2b70abae1b.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+    <title>Politico</title>
+  </head>
+  <body>
+    <div class="logo">
+      <p>Politico</p>
+    </div>
+
+    <div class="container">
+      <div class="form-container">
+        <form action="submit">
+          <h1 class="title">Create an account</h1>
+          <p>
+            Already have an account?
+            <a class="signin" href="/signin/index.html">Sign in</a>
+          </p>
+
+          <p class="social-text">Connect with Social</p>
+          <div class="social">
+            <a href="http://" class="social-icon">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="http://" class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="http://" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+
+          <p class="or">OR</p>
+          <h3>Sign up with Email</h3>
+          <div class="input-field">
+            <label for="email" class="form-label">Email address</label>
+            <input type="input" class="form-field" required />
+          </div>
+          <div class="input-field">
+            <label for="first-name" class="form-label">First name</label>
+            <input type="input" class="form-field" required />
+          </div>
+          <div class="input-field">
+            <label for="last-name" class="form-label">Last name</label>
+            <input type="input" class="form-field" required />
+          </div>
+          <div class="input-field">
+            <label for="contact-address" class="form-label"
+              >Contact address</label
+            >
+            <input type="input" class="form-field" required />
+          </div>
+          <div class="input-field">
+            <label for="Password" class="form-label">Password</label>
+            <input type="input" class="form-field" id="password" required />
+          </div>
+          <div class="input-field">
+            <label for="birthday" class="form-label">Date of birth</label>
+            <div class="birthday">
+              <input
+                type="month"
+                class="form-field"
+                placeholder="Month"
+                required
+              />
+              <input
+                type="year"
+                class="form-field dob"
+                placeholder="Year"
+                required
+              />
+            </div>
+          </div>
+          <div class="input-field">
+            <label for="email" id="country" class="form-label">Country</label>
+            <input type="input" class="form-field" required />
+          </div>
+
+          <p class="terms">
+            By clicking Create account, I agree to have and accepted the
+            <a class="policy" href="#">Terms of Use</a> and
+            <a class="policy" href="#">Privacy Policy</a>.
+          </p>
+          <button id="sign-up-button" class="btn">Create account</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
