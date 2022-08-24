@@ -6,6 +6,11 @@ const cors = require('cors');
 const morgan = require('morgan');
 const helmet = require('helmet');
 
+const officeRouter = require('./src/routes/officeRouter');
+
+const hostname = 'localhost';
+const port = 2000;
+
 const app = express();
 
 const dummyJson = [{
@@ -20,20 +25,22 @@ app.use(express.urlencoded({
 
 // Helmet enhances the API security 
 app.use(helmet());
-
 app.use(bodyParser.json());
-
 app.use(cors());
+app.use(morgan('dev'));
 
-app.use(morgan('combined'));
+app.use('/offices', officeRouter);
+app.use(express.static(__dirname + '/public'))
 
-app.get('/', (req, res) => {
-  res.send(dummyJson);
+app.use((req, res, next) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/html');
+  res.end('<html><body><h1>Testing app!</h1></body></html>');
 });
 
-const dataJson = path.join(__dirname, 'data.json');
+const server = http.createServer(app);
 
 // listening server 
-app.listen(2001, () => {
-  console.log('listening on port 2001');
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
 });
