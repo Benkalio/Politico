@@ -1,0 +1,25 @@
+{
+  "Political Parties": [
+    {
+      "id": 1,
+      "name": "All Progressive Party",
+      "acronym": "APC",
+      "yearCreated": 2010,
+      "presidentialCandidate": "Asiwaju Ahmed Tinubu"
+    },
+    {
+      "id": 2,
+      "name": "Labour Party",
+      "acronym": "LP",
+      "yearCreated": 2015,
+      "presidentialCandidate": "Peter Obi"
+    },
+    {
+      "id": 3,
+      "name": "People's Democratic Party",
+      "acronym": "PDP",
+      "yearCreated": 1999,
+      "presidentialCandidate": "Atiku Abubakar"
+    }
+  ]
+}

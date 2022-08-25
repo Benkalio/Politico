@@ -1,0 +1,22 @@
+{
+  "Political Offices": [
+    {
+      "id": 1,
+      "name": "President",
+      "electionYear": 2023,
+      "month": "February"
+    },
+    {
+      "id": 2,
+      "name": "House of Senates",
+      "electionYear": 2023,
+      "month": "May"
+    },
+    {
+      "id": 3,
+      "name": "National Assembly",
+      "electionYear": 2023,
+      "month": "April"
+    }
+  ]
+}
