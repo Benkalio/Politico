@@ -13,26 +13,25 @@ const port = 2000;
 
 const app = express();
 
-const dummyJson = [{
-  title: "Revisit here in a moment to see progress."
-}];
-
 // Support for Posting from urlencoded 
 app.use(express.urlencoded({
   extended: true
 }));
 
-
 // Helmet enhances the API security 
 app.use(helmet());
+
 app.use(bodyParser.json());
+
 app.use(cors());
+
 app.use(morgan('dev'));
 
 app.use('/offices', officeRouter);
-app.use(express.static(__dirname + '/public'))
 
-app.use((req, res, next) => {
+app.use(express.static(__dirname + '/src'))
+
+app.use((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/html');
   res.end('<html><body><h1>Testing app!</h1></body></html>');
