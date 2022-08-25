@@ -1,4 +1,7 @@
-node_modules
+###Dependencies
+/node_modules
+
+##misc
 .DS_Store
 
 ### VisualStudioCode ###
