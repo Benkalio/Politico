@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Benkalio/Politico/issues"
   },
-  "homepage": "https://github.com/Benkalio/Politico#readme"
+  "homepage": "https://github.com/Benkalio/Politico#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }

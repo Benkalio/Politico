@@ -33,8 +33,10 @@ app.use(express.static(__dirname + '/src'))
 
 app.use((req, res) => {
   res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/html');
-  res.end('<html><body><h1>Testing app!</h1></body></html>');
+  res.setHeader('Content-Type', 'application/json');
+  res.end({
+    governmentPosition: 'Presidential Post'
+  });
 });
 
 const server = http.createServer(app);
