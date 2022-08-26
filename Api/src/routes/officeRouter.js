@@ -1,9 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-var officeRouter = express.Router();
+const officeRouter = express.Router();
 
 officeRouter.use(bodyParser.json('dev'));
 
 officeRouter.route('/')
-.get()
+  .get()
+
+modules.exports = officeRouter;

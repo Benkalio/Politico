@@ -1,8 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs').promises;
+const http = require('http');
 const path = require('path');
 const cors = require('cors');
+const morgan = require('morgan');
+
+const partyRouter = require('./api/src/routes/officeRouter');
+const officeRouter = require('./api/src/routes/officeRouter');
 
 const hostname = 'localhost';
 const port = 3000;
@@ -19,16 +24,19 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', "*");
   next();
 });
+
+
+
 app.use('/parties', partyRouter);
 app.use('/offices', officeRouter);
 
 const dataFile = path.join(__dirname + 'data.json');
 
 
-app.use((req, res, next) => {
+app.use(("/"), (req, res, next) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
-  res.end();
+  res.end(JSON.stringify(dataFile));
 });
 
 const server = http.createServer(app);
