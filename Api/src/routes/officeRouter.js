@@ -39,7 +39,7 @@ officeRouter.route('/:officeId')
   })
   .post((req, res, next) => {
     res.statusCode = 403;
-    res.end('Cannot post office ' + req.params.dishId)
+    res.end('Cannot post office ' + req.params.officeId)
   })
   .put((req, res, params) => {
     res.write('Updating: ' + req.params.officeId + '\n');
