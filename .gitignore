@@ -1,6 +1,6 @@
 ###Dependencies
 ./node_modules
-node_modules
+
 
 ##misc
 .DS_Store
@@ -29,3 +29,5 @@ node_modules
 
 # Ignore code-workspaces
 *.code-workspace
+
+node_modules
