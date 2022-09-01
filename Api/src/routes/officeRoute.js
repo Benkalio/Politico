@@ -50,4 +50,4 @@ officeRouter.route('/officeRoute/:officeId')
     res.end('Deleting offices with id: ' + req.params.officeId)
   })
 
-modules.exports = officeRouter;
+module.exports = officeRouter;

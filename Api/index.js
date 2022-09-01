@@ -3,22 +3,22 @@ const bodyParser = require('body-parser');
 const fs = require('fs').promises;
 const http = require('http');
 const path = require('path');
-const cors = require('cors');
+// const cors = require('cors');
 const morgan = require('morgan');
 
-const partyRouter = require('./api/src/routes/officeRouter');
-const officeRouter = require('./api/src/routes/officeRouter');
+const partyRouter = require('./src/routes/partyRoute');
+const officeRouter = require('./src/routes/officeRoute');
 
 const hostname = 'localhost';
 const port = 3000;
 
-app.use(cors());
+// app.use(cors());
 
 const app = express();
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(express.urlencoded({
-  extended: true
+  extended: false
 }));
 
 // Enabling CORS
@@ -27,13 +27,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use('/api/src/routes/officeRoute', officeRouter);
+app.use('/api/src/routes/partyRoute', partyRouter);
 
-
-app.use('/parties', partyRouter);
-app.use('/offices', officeRouter);
-
-const dataFile = path.join(__dirname + 'data.json');
-
+const dataFile = path.join(__dirname, '/api/src/resources/data.json');
 
 app.use(("/"), (req, res, next) => {
   res.statusCode = 200;
@@ -43,6 +40,7 @@ app.use(("/"), (req, res, next) => {
 });
 
 const server = http.createServer(app);
+
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
