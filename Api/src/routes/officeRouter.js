@@ -5,7 +5,7 @@ const officeRouter = express.Router();
 
 officeRouter.use(bodyParser.json('dev'));
 
-officeRouter.route('/')
+officeRouter.route('/officeRouter')
   .all((req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
@@ -26,7 +26,7 @@ officeRouter.route('/')
     res.end('Deleting all the government offices!');
   });
 
-officeRouter.route('/:officeId')
+officeRouter.route('/officeRoute/:officeId')
   .all((req, res, next) => {
     res.writeHead(200, {
       'Content-Type': 'application/json'
