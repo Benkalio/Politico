@@ -10,7 +10,7 @@ const PORT = 4000;
 
 const app = express();
 
-const officeRoute = require('./src/routes/officeRoute.js');
+const officeRoutes = require('./src/routes/officeRoutes.js');
 
 
 app.use(bodyParser.json());
@@ -27,15 +27,15 @@ app.use((req, res, next) => {
   next();
 });
 
-let dataFile = path.join(__dirname, '/api/src/resources/data.json');
+const dataFile = require('../api/data.json');
 
 app.use('/offices', officeRoute);
 
 app.get("/", (req, res, next) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
-  // res.send(JSON.parse(dataFile));
-  res.send('Testing the routes')
+  res.send(JSON.parse(dataFile));
+  // res.send('Testing the routes')
   next();
 });
 

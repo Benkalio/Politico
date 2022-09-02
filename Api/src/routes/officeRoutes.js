@@ -1,7 +1,6 @@
 const express = require('express');
-const {
-  v4: uuidv4
-} = require('uuid');
+
+const createOffice = require('../controllers/officeController');
 
 const officeRouter = express.Router();
 
@@ -16,22 +15,7 @@ officeRouter
     res.send(offices);
     next();
   })
-  .post("/", (req, res, next) => {
-    let office = req.body;
-
-    // For creating unique office IDs
-    const officeId = uuidv4();
-
-    const officeWithId = {
-      ...office,
-      id: officeId
-    };
-
-    offices.push(officeWithId);
-
-    res.send(`Office with the post ${office.post} was added to the database`);
-    next();
-  })
+  .post("/", createOffice)
 
   .get('/:id', (req, res, next) => {
     const {
