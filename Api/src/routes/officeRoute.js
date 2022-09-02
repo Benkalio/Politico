@@ -12,18 +12,19 @@ officeRouter.route('/officeRouter')
     next();
   })
   .get((req, res, next) => {
-    res.end('Sending you the recent government offices...');
+    res.send('Sending you the recent government offices...');
   })
   .post((req, res, next) => {
-    res.end('Will add the office: ' + req.body.name +
+    res.send('Will add the office: ' + req.body.name +
       ' with details: ' + req.body.description);
   })
   .put((req, res, next) => {
     res.statusCode = 403;
-    res.end('Put operation not supported on /offices');
+    res.send('Put operation not supported on /offices');
+    next();
   })
   .delete((req, res, next) => {
-    res.end('Deleting all the government offices!');
+    res.send('Deleting all the government offices!');
   });
 
 officeRouter.route('/officeRoute/:officeId')
@@ -34,21 +35,22 @@ officeRouter.route('/officeRoute/:officeId')
     next();
   })
   .get((req, res, next) => {
-    res.end('Sending government office with id: ' + req.body.params +
+    res.send('Sending government office with id: ' + req.body.params +
       ' to you!');
   })
   .post((req, res, next) => {
     res.statusCode = 403;
-    res.end('Cannot post office ' + req.params.officeId)
+    res.send('Cannot post office ' + req.params.officeId)
   })
   .put((req, res, params) => {
     res.write('Updating: ' + req.params.officeId + '\n');
-    res.end('Posting office with id: ' +
-      req.body.name + 'with details: ' + req.body.description)
+    res.send('Posting office with id: ' +
+      req.body.name + 'with details: ' + req.body.description);
+    next();
   })
   .delete((req, res, params) => {
-    res.end('Deleting offices with id: ' + req.params.officeId)
+    res.send('Deleting offices with id: ' + req.params.officeId);
+    next();
   })
 
 module.exports = officeRouter;
-

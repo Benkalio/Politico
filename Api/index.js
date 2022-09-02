@@ -30,12 +30,15 @@ app.use((req, res, next) => {
 app.use('/api/src/routes/officeRoute', officeRouter);
 app.use('/api/src/routes/partyRoute', partyRouter);
 
+fs.readFile('/api/src/resources/data.json', 'utf8')
+
 const dataFile = path.join(__dirname, '/api/src/resources/data.json');
+
 
 app.use(("/"), (req, res, next) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.stringify(dataFile));
+  res.end(JSON.parse(dataFile));
   next();
 });
 
