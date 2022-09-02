@@ -33,9 +33,9 @@ app.use('/offices', officeRoute);
 
 app.get("/", (req, res, next) => {
   res.statusCode = 200;
-  // res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Content-Type', 'application/json');
   // res.send(JSON.parse(dataFile));
-  res.send('Texting from the other side')
+  res.send('Testing the routes')
   next();
 });
 
