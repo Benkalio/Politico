@@ -3,47 +3,44 @@ const bodyParser = require('body-parser');
 const fs = require('fs').promises;
 const http = require('http');
 const path = require('path');
-// const cors = require('cors');
+const cors = require('cors');
 const morgan = require('morgan');
-
-const partyRouter = require('./src/routes/partyRoute');
-const officeRouter = require('./src/routes/officeRoute');
-
-const hostname = 'localhost';
-const port = 3000;
-
-// app.use(cors());
+const hostName = 'localhost';
+const PORT = 4000;
 
 const app = express();
-app.use(morgan('dev'));
+
+const officeRoute = require('./src/routes/officeRoute.js');
+
+
 app.use(bodyParser.json());
+app.use(morgan('dev'));
+
 app.use(express.urlencoded({
   extended: false
 }));
 
 // Enabling CORS
+app.use(cors());
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', "*");
   next();
 });
 
-app.use('/api/src/routes/officeRoute', officeRouter);
-app.use('/api/src/routes/partyRoute', partyRouter);
+let dataFile = path.join(__dirname, '/api/src/resources/data.json');
 
-fs.readFile('/api/src/resources/data.json', 'utf8')
+app.use('/offices', officeRoute);
 
-const dataFile = path.join(__dirname, '/api/src/resources/data.json');
-
-
-app.use(("/"), (req, res, next) => {
+app.get("/", (req, res, next) => {
   res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.parse(dataFile));
+  // res.setHeader('Content-Type', 'application/json');
+  // res.send(JSON.parse(dataFile));
+  res.send('Texting from the other side')
   next();
 });
 
 const server = http.createServer(app);
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+server.listen(PORT, hostName, () => {
+  console.log(`Server running at http://${hostName}:${PORT}`);
 });
