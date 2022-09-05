@@ -11,7 +11,7 @@ const PORT = 4000;
 const app = express();
 
 const officeRoutes = require('./src/routes/officeRoutes.js');
-
+const partyRoutes = require('./src/routes/partyRoutes.js');
 
 app.use(bodyParser.json());
 app.use(morgan('dev'));
@@ -29,7 +29,8 @@ app.use((req, res, next) => {
 
 const dataFile = require('../api/data.json');
 
-app.use('/offices', officeRoute);
+app.use('/offices', officeRoutes);
+app.use('/parties', partyRoutes);
 
 app.get("/", (req, res, next) => {
   res.statusCode = 200;

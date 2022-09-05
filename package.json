@@ -28,6 +28,8 @@
   },
   "description": "",
   "devDependencies": {
+    "@babel/core": "^7.18.13",
+    "@babel/node": "^7.18.10",
     "chai": "^4.3.6",
     "mocha": "^10.0.0",
     "nodemon": "^2.0.19"
