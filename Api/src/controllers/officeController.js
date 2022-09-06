@@ -1,6 +1,6 @@
-const {
-  v4: uuidv4
-} = require('uuid');
+import {
+  v4 as uuidv4
+} from 'uuid';
 
 let offices = [{
   post: "governor",
@@ -8,12 +8,12 @@ let offices = [{
 }];
 
 
-const getOffices = (req, res, next) => {
+export const getOffices = (req, res, next) => {
   res.send(offices);
   next();
 };
 
-const createOffice = (req, res, next) => {
+export const createOffice = (req, res, next) => {
   let office = req.body;
 
   // For creating unique office IDs
@@ -30,7 +30,7 @@ const createOffice = (req, res, next) => {
   next();
 };
 
-const getOffice = (req, res, next) => {
+export const getOffice = (req, res, next) => {
   const {
     id
   } = req.params;
@@ -42,7 +42,7 @@ const getOffice = (req, res, next) => {
   next();
 };
 
-const deleteOffice = (req, res, next) => {
+export const deleteOffice = (req, res, next) => {
   const {
     id
   } = req.params;
@@ -53,7 +53,7 @@ const deleteOffice = (req, res, next) => {
   next();
 };
 
-const updateOffice = (req, res) => {
+export const updateOffice = (req, res) => {
   const {
     id
   } = req.params;
@@ -69,13 +69,21 @@ const updateOffice = (req, res) => {
   res.send(`Office with the id ${id} has been updated.`)
 };
 
-module.exports = {
-  createOffice,
-  getOffice,
-  getOffices,
-  updateOffice,
-  deleteOffice
-}
+// export default {
+//   createOffice,
+//   getOffice,
+//   getOffices,
+//   deleteOffice,
+//   updateOffice
+// }
+
+// module.exports = {
+//   createOffice,
+//   getOffice,
+//   getOffices,
+//   updateOffice,
+//   deleteOffice
+// }
 
 
 

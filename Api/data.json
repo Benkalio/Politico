@@ -1,22 +1,23 @@
+
 {
   "Political Parties": [
     {
       "id": 1,
-      "name": "All Progressive Party",
+      "partName": "All Progressive Party",
       "acronym": "APC",
       "yearCreated": 2010,
       "presidentialCandidate": "Asiwaju Ahmed Tinubu"
     },
     {
       "id": 2,
-      "name": "Labour Party",
+      "partName": "Labour Party",
       "acronym": "LP",
       "yearCreated": 2015,
       "presidentialCandidate": "Peter Obi"
     },
     {
       "id": 3,
-      "name": "People's Democratic Party",
+      "partName": "People's Democratic Party",
       "acronym": "PDP",
       "yearCreated": 1999,
       "presidentialCandidate": "Atiku Abubakar"
@@ -26,21 +27,24 @@
   "Government Offices": [
     {
       "id": 1,
-      "name": "President",
+      "post": "President",
       "electionYear": 2023,
-      "month": "February"
+      "month": "February",
+      "term": "4 years minimum"
     },
     {
       "id": 2,
-      "name": "House of Senates",
+      "post": "House of Senates",
       "electionYear": 2023,
-      "month": "May"
+      "month": "May",
+      "term": "4 years minimum"
     },
     {
       "id": 3,
-      "name": "National Assembly",
+      "post": "National Assembly",
       "electionYear": 2023,
-      "month": "April"
+      "month": "April",
+      "term": "4 years minimum"
     }
   ]
 }

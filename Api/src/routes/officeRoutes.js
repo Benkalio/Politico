@@ -1,19 +1,23 @@
-const express = require('express');
+import express from 'express';
 
-const {
+import {
   getOffices,
   createOffice,
   getOffice,
   deleteOffice,
   updateOffice,
-} = require('../controllers/officeController.js');
+} from '../controllers/officeController.js';
 
 const officeRouter = express.Router();
-
 
 // officeRouter.route('/officeRouter')
 
 officeRouter
+  .all('/', (req, res, next) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    next();
+  })
   .get("/", getOffices)
 
   .post("/", createOffice)
@@ -24,4 +28,4 @@ officeRouter
 
   .patch('/:id', updateOffice)
 
-module.exports = officeRouter;
+export default officeRouter;

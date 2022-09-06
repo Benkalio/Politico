@@ -1,17 +1,19 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const fs = require('fs').promises;
-const http = require('http');
-const path = require('path');
-const cors = require('cors');
-const morgan = require('morgan');
+import express from 'express';
+import bodyParser from 'body-parser';
+import * as fs from 'node:fs/promises';
+import * as http from 'http';
+import path from 'node:path';
+import cors from "cors";
+import morgan from 'morgan';
+
 const hostName = 'localhost';
 const PORT = 4000;
 
 const app = express();
 
-const officeRoutes = require('./src/routes/officeRoutes.js');
-const partyRoutes = require('./src/routes/partyRoutes.js');
+import officeRoutes from './src/routes/officeRoutes.js';
+import partyRoutes from './src/routes/partyRoutes.js';
+import dataFile from '../api/data.json' assert{type: json};
 
 app.use(bodyParser.json());
 app.use(morgan('dev'));
@@ -27,12 +29,11 @@ app.use((req, res, next) => {
   next();
 });
 
-const dataFile = require('../api/data.json');
 
 app.use('/offices', officeRoutes);
 app.use('/parties', partyRoutes);
 
-app.get("/", (req, res, next) => {
+app.get("/", async (req, res, next) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
   res.send(JSON.parse(dataFile));

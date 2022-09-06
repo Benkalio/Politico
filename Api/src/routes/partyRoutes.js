@@ -1,61 +1,31 @@
-const express = require("express");
+import express from 'express';
+import {
+  getParties,
+  getParty,
+  createParty,
+  updateParty,
+  deleteParty
+} from '../controllers/partyController.js';
+
 const partyRouter = express.Router();
 
-const {
-  v4: uuidv4
-} = require('uuid');
-
-let parties = [{
-  partyName: "People's Democratic Party",
-  acronym: "PDP",
-  members: "250"
-}];
-
 partyRouter
-  .all(('/'), (req, res, next) => {
+  .all('/', (req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
     next();
   })
-  .get(('/'), (req, res, next) => {
-    res.send('Sending the registered political parties');
-    next();
-  })
-  .post(('/'), (req, res, next) => {
-    let party = req.body;
+  .get('/', getParties)
 
-    const partyWithId = {
-      ...party,
-      id: partyId
-    };
+  .post('/:id', createParty)
 
-    parties.push(partyWithId);
+  .get('/:id', getParty)
 
-    res.send(`Party with id ${id} has been added.`)
-    next();
-  })
-  
-  .get(('/:id'), (req, res, next) => {
-    const {
-      id
-    } = req.params;
-    const foundParty = parties.find((party) => party.id === id);
+  .patch('/', updateParty)
 
-    res.send(foundParty);
+  .delete('/:id', deleteParty)
 
-    next();
-  })
-
-  .patch('/', (req, res, next) => {
-
-  })
-
-  .delete(('/:id'), (req, res, next) => {
-    res.end(`Deleting party with ${id}.`);
-    next();
-  })
-
-module.exports = partyRouter;
+export default partyRouter;
 
 
 

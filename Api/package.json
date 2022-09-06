@@ -1,19 +1,36 @@
 {
-  "name": "politico-api",
+  "name": "politico",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node api/index.js"
+    "test": "mocha || true",
+    "start": "nodemon --exec babel -node api/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Benkalio/Politico.git"
   },
   "keywords": [],
-  "author": "Tennyson Ben-kalio",
+  "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Benkalio/Politico/issues"
+  },
+  "homepage": "https://github.com/Benkalio/Politico#readme",
   "dependencies": {
-    "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "express": "^4.18.1",
-    "helmet": "^5.1.1",
-    "morgan": "^1.10.0"
+    "express-session": "^1.17.3",
+    "helmet": "^6.0.0",
+    "morgan": "^1.10.0",
+    "uuid": "^8.3.2"
+  },
+  "description": "",
+  "devDependencies": {
+    "@babel/core": "^7.18.13",
+    "@babel/node": "^7.18.10",
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.19"
   }
 }
