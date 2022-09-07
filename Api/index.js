@@ -1,4 +1,6 @@
-import express from 'express';
+import express, {
+  json
+} from 'express';
 import bodyParser from 'body-parser';
 import * as fs from 'node:fs/promises';
 import * as http from 'http';
@@ -13,7 +15,7 @@ const app = express();
 
 import officeRoutes from './src/routes/officeRoutes.js';
 import partyRoutes from './src/routes/partyRoutes.js';
-import dataFile from '../api/data.json' assert{type: json};
+import dataFile from '../api/data.json';
 
 app.use(bodyParser.json());
 app.use(morgan('dev'));
@@ -28,7 +30,7 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', "*");
   next();
 });
-
+// console.log(dataFile);
 
 app.use('/offices', officeRoutes);
 app.use('/parties', partyRoutes);
@@ -36,7 +38,7 @@ app.use('/parties', partyRoutes);
 app.get("/", async (req, res, next) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.parse(dataFile));
+  res.send(JSON.parse(JSON.stringify(dataFile)));
   // res.send('Testing the routes')
   next();
 });
