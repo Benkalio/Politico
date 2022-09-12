@@ -1,0 +1,50 @@
+
+{
+  "Party": [
+    {
+      "id": 1,
+      "partName": "All Progressive Party",
+      "acronym": "APC",
+      "yearCreated": 2010,
+      "presidentialCandidate": "Asiwaju Ahmed Tinubu"
+    },
+    {
+      "id": 2,
+      "partName": "Labour Party",
+      "acronym": "LP",
+      "yearCreated": 2015,
+      "presidentialCandidate": "Peter Obi"
+    },
+    {
+      "id": 3,
+      "partName": "People's Democratic Party",
+      "acronym": "PDP",
+      "yearCreated": 1999,
+      "presidentialCandidate": "Atiku Abubakar"
+    }
+  ],
+
+  "Office": [
+    {
+      "id": 1,
+      "post": "President",
+      "electionYear": 2023,
+      "month": "February",
+      "term": "4 years minimum"
+    },
+    {
+      "id": 2,
+      "post": "House of Senates",
+      "electionYear": 2023,
+      "month": "May",
+      "term": "4 years minimum"
+    },
+    {
+      "id": 3,
+      "post": "National Assembly",
+      "electionYear": 2023,
+      "month": "April",
+      "term": "4 years minimum"
+    }
+  ]
+}
