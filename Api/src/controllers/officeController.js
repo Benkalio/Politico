@@ -1,15 +1,19 @@
 import {
   v4 as uuidv4
 } from 'uuid';
+import express from 'express';
 
 let offices = [{
   post: "governor",
   term: "4 years"
 }];
 
+import dataFile from "../data.json";
 
-export const getOffices = (req, res, next) => {
-  res.send(offices);
+export const getOffices = async (req, res, next) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'application/json');
+  res.send(JSON.parse(JSON.stringify(dataFile)));
   next();
 };
 

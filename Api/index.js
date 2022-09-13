@@ -4,7 +4,7 @@ import express, {
 import bodyParser from 'body-parser';
 import * as fs from 'node:fs/promises';
 import * as http from 'http';
-import path from 'node:path';
+// import path from 'node:path';
 import cors from "cors";
 import morgan from 'morgan';
 
@@ -15,7 +15,7 @@ const app = express();
 
 import officeRoutes from './src/routes/officeRoutes.js';
 import partyRoutes from './src/routes/partyRoutes.js';
-import dataFile from '../api/data.json';
+import dataFile from './src/data.json';
 
 app.use(bodyParser.json());
 app.use(morgan('dev'));
@@ -26,21 +26,25 @@ app.use(express.urlencoded({
 
 // Enabling CORS
 app.use(cors());
-app.use((req, res, next) => {
+app.use((req, res) => {
   res.setHeader('Access-Control-Allow-Origin', "*");
-  next();
 });
 // console.log(dataFile);
 
 app.use('/offices', officeRoutes);
 app.use('/parties', partyRoutes);
 
-app.get("/", async (req, res, next) => {
+app.get("/", async (req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
   res.send(JSON.parse(JSON.stringify(dataFile)));
-  // res.send('Testing the routes')
-  next();
+  // res.send('Testing the routes');
+});
+
+fs.readFile('./src/data.json', dataFile, (err) => {
+  if (err) throw err;
+
+  console.log('done');
 });
 
 const server = http.createServer(app);
