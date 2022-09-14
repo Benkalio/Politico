@@ -1,4 +1,3 @@
-
 {
   "Party": [
     {
@@ -45,6 +44,28 @@
       "electionYear": 2023,
       "month": "April",
       "term": "4 years minimum"
+    }
+  ],
+
+  "Candidate": [
+    {
+      "id": 1,
+      "office": "",
+      "party": "Labour Party",
+      "candidate": ""
+    }
+  ],
+
+  "User": [
+    {
+      "id": 1,
+      "firstName": "Gobi",
+      "lastName": "Wisdom",
+      "otherName": "Peter",
+      "email": "gobiwis@gmail.com",
+      "phoneNumber": 3843833432,
+      "passportURL": "image.jpg",
+      "isAdmin": false
     }
   ]
 }

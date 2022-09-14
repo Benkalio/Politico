@@ -1,23 +1,30 @@
 import express from "express";
-import fs from 'fs';
+
+import {
+  getUsers,
+  getUser,
+  createUser,
+  updateUser,
+  deleteUser
+} from "../controllers/userController";
 
 const userRouter = express.Router();
 
+l
 userRouter
   .all("/", (req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json')
     next();
   })
-  .get("/", (req, res, next) => {
-    res.send("There are no users");
-    next();
-  })
-  .post("/", (req, res, next) => {
-    res.send("")
-  })
-  .get("/:id", (req, res, next) => {
-    
-  })
+  .get("/", getUsers)
+
+  .post("/", createUser)
+
+  .get("/:id", getUser)
+
+  .patch("/:id", updateUser)
+
+  .delete("/:id", deleteUser)
 
 export default userRouter;
