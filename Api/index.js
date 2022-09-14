@@ -15,6 +15,7 @@ const app = express();
 
 import officeRoutes from './src/routes/officeRoutes.js';
 import partyRoutes from './src/routes/partyRoutes.js';
+import userRouter from './src/routes/userRoute.js';
 import dataFile from '../api/data.json';
 
 app.use(bodyParser.json());
@@ -32,6 +33,7 @@ app.use((req, res, next) => {
 });
 // console.log(dataFile);
 
+app.use('/users', userRouter);
 app.use('/offices', officeRoutes);
 app.use('/parties', partyRoutes);
 

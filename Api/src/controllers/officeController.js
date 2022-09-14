@@ -9,7 +9,7 @@ let offices = [{
 
 
 export const getOffices = (req, res, next) => {
-  res.send(offices);
+  res.send();
   next();
 };
 
