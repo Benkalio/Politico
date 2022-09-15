@@ -2,7 +2,25 @@ import {
   v4 as uuid
 } from 'uuid';
 
-let user = [];
+let users = [{
+    id: uuid(),
+    firstName: "Joseph",
+    lastName: "Ikape",
+    age: 30,
+  },
+  {
+    id: uuid(),
+    firstName: "Wesley",
+    lastName: "Philip",
+    age: 25,
+  },
+  {
+    id: uuid(),
+    firstName: "Christian",
+    lastName: "Bale",
+    age: 46,
+  }
+];
 
 export const getUsers = (req, res, next) => {
   res.send("There are no users");
@@ -10,48 +28,48 @@ export const getUsers = (req, res, next) => {
 };
 
 export const createUser = (req, res, next) => {
-  const user = req.body;
+  const user = {
+    id: uuid(),
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    age: req.body.age,
+  }
 
-  users.push({
-    ...user,
-    id: uuid()
-  });
+  users.push(user);
 
-  console.log(`User [${user.username}] added to the database.`);
+  res.send(`User ${user.firstName} added to the database.`);
+  next();
 };
 
-export const getUser = (req, res, params) => {
-  const {
-    firstName,
-    lastName,
-    age
-  } = req.body;
-  if (firstName) {
-    user.firstName = firstName;
-  }
+export const getUser = (req, res) => {
+  const userId = req.params.id;
+  const user = users.find(user => user.id === parseInt(userId));
+  if (!userId) return res.statusCode(404).send("No user with this id");
 
-  if (lastName) {
-    user.lastName = lastName;
-  }
-
-  if (age) {
-    user.age = age;
-  }
-
-  res.send(req.params.id);
+  res.send(user);
 }
 
-export const updateUser = (req, res, params) => {
-  const user = users.find((user) => user.id === req.params.id);
+export const updateUser = (req, res) => {
+  const userId = users.find((user) => user.id === req.params.id);
 
-  user.username = req.body.username;
-  user.age = req.body.age;
+  if (!userId) return res.statusCode(400).send("User does not exist");
 
-  res.send(`username has been updated to ${req.body.username}.age has been updated to ${req.body.age}`)
+  userId.firstName = req.body.firstName;
+  userId.lastName = req.user.lastName;
+  userId.age = req.body.age;
+
+  res.send(`username has been updated to ${req.body.firstName}.age has been updated to ${req.body.age}`)
 };
 
 export const deleteUser = (req, res) => {
-  console.log(`user with id ${req.params.id} has been deleted`);
 
-  users = users.filter((user) => user.id !== req.params.id);
+  const userId = req.params.id;
+  const user = users.find((user) => user.id === userId);
+
+  if (!user) return res.statusCode(400).send("User does not exist");
+
+  const indexOfUser = users.indexOf(user);
+  user.splice(indexOfUser, 1);
+
+  res.send(`user with id ${req.params.id} has been deleted`);
 };
