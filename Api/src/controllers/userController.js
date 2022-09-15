@@ -1,21 +1,21 @@
 import {
-  v4 as uuid
+  v4 as uuidv4
 } from 'uuid';
 
 let users = [{
-    id: uuid(),
+    id: uuidv4(),
     firstName: "Joseph",
     lastName: "Ikape",
     age: 30,
   },
   {
-    id: uuid(),
+    id: uuidv4(),
     firstName: "Wesley",
     lastName: "Philip",
     age: 25,
   },
   {
-    id: uuid(),
+    id: uuidv4(),
     firstName: "Christian",
     lastName: "Bale",
     age: 46,
@@ -23,13 +23,13 @@ let users = [{
 ];
 
 export const getUsers = (req, res, next) => {
-  res.send("There are no users");
+  res.send(users);
   next();
 };
 
 export const createUser = (req, res, next) => {
   const user = {
-    id: uuid(),
+    id: uuidv4(),
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     age: req.body.age,

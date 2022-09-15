@@ -9,7 +9,9 @@ let offices = [{
 
 
 export const getOffices = (req, res, next) => {
-  res.send();
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'application/json');
+  res.send(JSON.parse(JSON.stringify(dataFile)));
   next();
 };
 
