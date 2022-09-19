@@ -1,6 +1,7 @@
 import {
   v4 as uuidv4
 } from 'uuid';
+import bodyParser from "body-parser";
 
 let users = [{
     id: uuidv4(),
@@ -23,7 +24,8 @@ let users = [{
 ];
 
 export const getUsers = (req, res, next) => {
-  res.send(users);
+  let usersFile = JSON.stringify(users);
+  res.send(usersFile);
   next();
 };
 
@@ -37,7 +39,7 @@ export const createUser = (req, res, next) => {
 
   users.push(user);
 
-  res.send(`User ${user.firstName} added to the database.`);
+  res.send(`New user was added to the database.`);
   next();
 };
 
@@ -50,13 +52,16 @@ export const getUser = (req, res) => {
 }
 
 export const updateUser = (req, res) => {
-  const userId = users.find((user) => user.id === req.params.id);
+  const userId = req.params.id;
+  const user = users.find((user) => user.id === parseInt(userId));
 
-  if (!userId) return res.statusCode(400).send("User does not exist");
-
-  userId.firstName = req.body.firstName;
-  userId.lastName = req.user.lastName;
-  userId.age = req.body.age;
+  if (!user) {
+    res.statusCode = 400
+    res.send("User does not exist");
+  }
+  user.firstName = req.body.firstName;
+  user.lastName = req.user.lastName;
+  user.age = req.body.age;
 
   res.send(`username has been updated to ${req.body.firstName}.age has been updated to ${req.body.age}`)
 };

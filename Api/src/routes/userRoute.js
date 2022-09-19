@@ -10,7 +10,6 @@ import {
 
 const userRouter = express.Router();
 
-l
 userRouter
   .all("/", (req, res, next) => {
     res.statusCode = 200;
