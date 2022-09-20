@@ -40,13 +40,6 @@ app.get("/", async (req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
   res.send(JSON.parse(JSON.stringify(dataFile)));
-  // res.send('Testing the routes');
-});
-
-fs.readFile('./src/data.json', dataFile, (err) => {
-  if (err) throw err;
-
-  console.log('done');
 });
 
 const server = http.createServer(app);
