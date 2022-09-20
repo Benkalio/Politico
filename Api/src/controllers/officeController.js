@@ -66,8 +66,8 @@ export const updateOffice = (req, res) => {
 
   if (!office) return res.statusCode(400).send("Office does not exist");
 
-  officeId.type = req.body.type || officeId.type;
-  officeId.name = req.body.name || officeId.type;
+  office.type = req.body.type || office.type;
+  office.name = req.body.name || office.type;
 
   res.send(`Office with the id ${id} has been updated.`)
 };
