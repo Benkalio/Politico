@@ -26,24 +26,18 @@
   "Office": [
     {
       "id": 1,
-      "post": "President",
-      "electionYear": 2023,
-      "month": "February",
-      "term": "4 years minimum"
+      "post": "Presidency",
+      "name": "President"
     },
     {
       "id": 2,
-      "post": "House of Senates",
-      "electionYear": 2023,
-      "month": "May",
-      "term": "4 years minimum"
+      "type": "State Legislature",
+      "name": "Senate"
     },
     {
       "id": 3,
-      "post": "National Assembly",
-      "electionYear": 2023,
-      "month": "April",
-      "term": "4 years minimum"
+      "post": "Federal Lawmaker",
+      "name": "Senate"
     }
   ],
 

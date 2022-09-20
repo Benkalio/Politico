@@ -4,8 +4,9 @@ import {
 import express from 'express';
 
 let offices = [{
-  post: "governor",
-  term: "4 years"
+  id: uuidv4(),
+  "type": "Federal Lawmaker",
+  "name": "Senate"
 }];
 
 import dataFile from "../data.json";
@@ -47,28 +48,26 @@ export const getOffice = (req, res, next) => {
 };
 
 export const deleteOffice = (req, res, next) => {
-  const {
-    id
-  } = req.params;
+  const officeId = req.params.id;
+  const office = offices.find((office) => office.id === parseInt(officeId));
 
-  offices = offices.filter((office) => office.id !== id);
+  if (!office) return res.statusCode(400).send("Office does not exist");
+
+  const officeIndex = offices.indexOf(office);
+  office.splice(officeIndex, 1)
 
   res.send(`Government office with the id ${id} deleted from the database.`);
   next();
 };
 
 export const updateOffice = (req, res) => {
-  const {
-    id
-  } = req.params;
+  const officeId = req.params.id;
+  const office = offices.find((office) => office.id === parseInt(officeId));
 
-  const office = offices.find((office) => office.id === id);
-  if (post) {
-    office.post = post;
-  }
-  if (term) {
-    office.term = term;
-  }
+  if (!office) return res.statusCode(400).send("Office does not exist");
+
+  officeId.type = req.body.type || officeId.type;
+  officeId.name = req.body.name || officeId.type;
 
   res.send(`Office with the id ${id} has been updated.`)
 };
