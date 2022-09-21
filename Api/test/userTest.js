@@ -13,7 +13,7 @@ chai.use(chaiHttp);
 describe('User API', () => {
   //Testing Different Routes 
   // Get route
-  describe("Get /api/src/routes/userRoute", () => {
+  describe("Get /api/src/routes", () => {
     it("It should Get all users", (done) => {
       chai.request(server)
         .get("/api/src/routes/userRoute")
@@ -27,7 +27,7 @@ describe('User API', () => {
   });
 
   // Get by id 
-  describe("Get /api/src/routes/userRoute/:id", () => {
+  describe("Get /api/src/routes/:id", () => {
     it("It should get user by id", (done) => {
       chai.request(server)
         .get("/api/src/routes/userRoute")
@@ -40,7 +40,7 @@ describe('User API', () => {
   })
 
   // Post route
-  describe("Post /api/src/routes/userRoute", () => {
+  describe("Post /api/src/routes", () => {
     it("It should make a post to users", (done) => {
       chai.request(server)
         .get("/api/src/routes/userRoute")

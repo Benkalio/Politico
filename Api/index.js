@@ -15,7 +15,7 @@ const app = express();
 
 import officeRoutes from './src/routes/officeRoutes.js';
 import partyRoutes from './src/routes/partyRoutes.js';
-import userRouter from './src/routes/userRoute.js';
+import userRouter from './src/routes/userRoutes.js';
 import dataFile from './src/data.json';
 
 app.use(bodyParser.json());
@@ -30,7 +30,6 @@ app.use(cors());
 app.use((req, res) => {
   res.setHeader('Access-Control-Allow-Origin', "*");
 });
-// console.log(dataFile);
 
 app.use('/users', userRouter);
 app.use('/offices', officeRoutes);
@@ -39,7 +38,7 @@ app.use('/parties', partyRoutes);
 app.get("/", async (req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.parse(JSON.stringify(dataFile)));
+  res.send("This is the base!");
 });
 
 const server = http.createServer(app);

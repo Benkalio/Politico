@@ -1,7 +1,8 @@
 import {
   v4 as uuidv4
 } from 'uuid';
-import express from 'express';
+
+import data from "../data.json";
 
 let offices = [{
   id: uuidv4(),
@@ -11,63 +12,66 @@ let offices = [{
 
 import dataFile from "../data.json";
 
-export const getOffices = async (req, res, next) => {
+export const getOffices = async (req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
   res.send(JSON.parse(JSON.stringify(dataFile)));
-  next();
 };
 
-export const createOffice = (req, res, next) => {
+export const createOffice = (req, res) => {
   let office = req.body;
 
   // For creating unique office IDs
   const officeId = uuidv4();
 
   const officeWithId = {
-    ...office,
-    id: officeId
+    id: officeId,
+    ...office
   };
 
   offices.push(officeWithId);
 
-  res.send(`Office with the post ${office.post} was added to the database`);
-  next();
+  res.send("New office has been added to the database");
 };
 
-export const getOffice = (req, res, next) => {
+export const getOffice = (req, res) => {
   const {
     id
   } = req.params;
 
   const foundOffice = offices.find((office) => office.id === id);
 
+  if (!foundOffice) {
+    return res.statusCode(400).send("Office not found.")
+  };
+
   res.send(foundOffice);
-
-  next();
 };
 
-export const deleteOffice = (req, res, next) => {
+export const updateOffice = (req, res, error) => {
   const officeId = req.params.id;
   const office = offices.find((office) => office.id === parseInt(officeId));
 
-  if (!office) return res.statusCode(400).send("Office does not exist");
-
-  const officeIndex = offices.indexOf(office);
-  office.splice(officeIndex, 1)
-
-  res.send(`Government office with the id ${id} deleted from the database.`);
-  next();
-};
-
-export const updateOffice = (req, res) => {
-  const officeId = req.params.id;
-  const office = offices.find((office) => office.id === parseInt(officeId));
-
-  if (!office) return res.statusCode(400).send("Office does not exist");
+  if (!office && error) {
+    return res.statusCode(400).send("Office does not exist")
+  };
 
   office.type = req.body.type || office.type;
   office.name = req.body.name || office.type;
 
   res.send(`Office with the id ${id} has been updated.`)
+};
+
+export const deleteOffice = (req, res, error) => {
+  const officeId = req.params.id;
+  const office = offices.find((office) => office.id === parseInt(officeId));
+
+  if (!office && error) {
+    return res.statusCode(400).send("Office does not exist")
+  };
+
+  const officeIndex = offices.indexOf(office);
+  office.splice(officeIndex, 1)
+
+  res.send(`Government office with the id ${id} deleted from the database.`);
 };

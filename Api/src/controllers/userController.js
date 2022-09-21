@@ -2,6 +2,8 @@ import {
   v4 as uuidv4
 } from 'uuid';
 
+import data from "../data.json";
+
 let users = [{
     id: uuidv4(),
     firstName: "Joseph",
@@ -22,12 +24,11 @@ let users = [{
   }
 ];
 
-export const getUsers = (req, res, next) => {
+export const getUsers = (req, res) => {
   res.send(users);
-  next();
 };
 
-export const createUser = (req, res, next) => {
+export const createUser = (req, res) => {
   const user = {
     id: uuidv4(),
     firstName: req.body.firstName,
@@ -38,26 +39,30 @@ export const createUser = (req, res, next) => {
   users.push(user);
 
   res.send(`User ${user.firstName} added to the database.`);
-  next();
 };
 
 export const getUser = (req, res) => {
   const userId = req.params.id;
   const user = users.find(user => user.id === parseInt(userId));
 
-  if (!user) return res.statusCode(404).send("No user with this id");
+  if (!user) {
+    return res.statusCode(404).send("No user with this id")
+  };
 
   res.send(user);
 }
 
 export const updateUser = (req, res) => {
-  const user = users.find((user) => user.id === req.params.id);
+  const userId = req.params.id;
+  const user = users.find((user) => user.id === userId);
 
-  if (!user) return res.statusCode(400).send("User does not exist");
+  if (!user) {
+    return res.statusCode(400).send("User does not exist")
+  };
 
-  user.firstName = req.body.firstName;
-  user.lastName = req.user.lastName;
-  user.age = req.body.age;
+  user.firstName = req.body.firstName || user.firstName;
+  user.lastName = req.user.lastName || user.lastName;
+  user.age = req.body.age || user.age;
 
   res.send(`username has been updated to ${req.body.firstName}.age has been updated to ${req.body.age}`)
 };
@@ -67,7 +72,9 @@ export const deleteUser = (req, res) => {
   const userId = req.params.id;
   const user = users.find((user) => user.id === userId);
 
-  if (!user) return res.statusCode(400).send("User does not exist");
+  if (!user) {
+    return res.statusCode(400).send("User does not exist")
+  };
 
   const indexOfUser = users.indexOf(user);
   user.splice(indexOfUser, 1);
