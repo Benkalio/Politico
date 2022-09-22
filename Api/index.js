@@ -1,6 +1,4 @@
-import express, {
-  json
-} from 'express';
+import express from 'express';
 import bodyParser from 'body-parser';
 import * as fs from 'node:fs/promises';
 import * as http from 'http';
@@ -9,14 +7,14 @@ import cors from "cors";
 import morgan from 'morgan';
 
 const hostName = 'localhost';
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 const app = express();
 
 import officeRoutes from './src/routes/officeRoutes.js';
 import partyRoutes from './src/routes/partyRoutes.js';
 import userRouter from './src/routes/userRoutes.js';
-import dataFile from './src/data.json';
+import data from './src/data.json' assert { type: "json" };
 
 app.use(bodyParser.json());
 app.use(morgan('dev'));
@@ -32,17 +30,17 @@ app.use((req, res) => {
 });
 
 app.use('/users', userRouter);
-app.use('/offices', officeRoutes);
 app.use('/parties', partyRoutes);
 
-app.get("/", async (req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json');
-  res.send("This is the base!");
-});
+officeRoutes(app);
 
-const server = http.createServer(app);
+app.route("/")
+  .get(async (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.parse(data));
+  });
 
-server.listen(PORT, hostName, () => {
-  console.log(`Server running at http://${hostName}:${PORT}`);
+app.listen(PORT, hostName, () => {
+  console.log(`Server running on http://${hostName}:${PORT}`);
 });

@@ -2,7 +2,7 @@ import {
   v4 as uuidv4
 } from 'uuid';
 
-import data from "../data.json";
+import data from "../data.json" assert { type: "json"};
 
 let offices = [{
   id: uuidv4(),
@@ -10,12 +10,10 @@ let offices = [{
   "name": "Senate"
 }];
 
-import dataFile from "../data.json";
-
 export const getOffices = async (req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.parse(JSON.stringify(dataFile)));
+  res.send(JSON.parse(JSON.stringify(data)));
 };
 
 export const createOffice = (req, res) => {
@@ -31,7 +29,10 @@ export const createOffice = (req, res) => {
 
   offices.push(officeWithId);
 
-  res.send("New office has been added to the database");
+  res.send(JSON.parse({
+    status: 200,
+    data: officeWithId,
+  }));
 };
 
 export const getOffice = (req, res) => {

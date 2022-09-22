@@ -6,23 +6,25 @@ import {
   updateParty,
   deleteParty
 } from '../controllers/partyController.js';
+import officeRouter from './officeRoutes.js';
 
 const partyRouter = express.Router();
 
-partyRouter
-  .all('/', (req, res, next) => {
+partyRouter.route("/")
+  .all((req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
     next();
   })
-  .get('/', getParties)
+  .get(getParties)
 
-  .post('/:id', createParty)
+  .post(createParty)
 
-  .get('/:id', getParty)
+partyRouter.route("/:id")
+  .get(getParty)
 
-  .patch('/', updateParty)
+  .patch(updateParty)
 
-  .delete('/:id', deleteParty)
+  .delete(deleteParty)
 
 export default partyRouter;

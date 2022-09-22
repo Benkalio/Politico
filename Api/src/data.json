@@ -1,5 +1,5 @@
 {
-  "Party": [
+  "Parties": [
     {
       "id": 1,
       "partName": "All Progressive Party",
@@ -23,7 +23,7 @@
     }
   ],
 
-  "Office": [
+  "Offices": [
     {
       "id": 1,
       "post": "Presidency",
@@ -41,7 +41,7 @@
     }
   ],
 
-  "Candidate": [
+  "Candidates": [
     {
       "id": 1,
       "office": "",
@@ -50,7 +50,7 @@
     }
   ],
 
-  "User": [
+  "Users": [
     {
       "id": 1,
       "firstName": "Gobi",

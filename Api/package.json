@@ -2,6 +2,7 @@
   "name": "politico",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "mocha || true",
     "start": "nodemon --exec babel-node index.js"

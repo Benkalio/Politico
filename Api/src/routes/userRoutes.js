@@ -6,24 +6,22 @@ import {
   createUser,
   updateUser,
   deleteUser
-} from "../controllers/userController";
+} from "../controllers/userController.js";
 
 const userRouter = express.Router();
 
-userRouter
-  .all("/", (req, res, next) => {
+userRouter.route("/")
+  .all((req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json')
     next();
   })
-  .get("/", getUsers)
+  .get(getUsers)
+  .post(createUser);
 
-  .post("/", createUser)
-
-  .get("/:id", getUser)
-
-  .patch("/:id", updateUser)
-
-  .delete("/:id", deleteUser)
+userRouter.route("/:id")
+  .get(getUser)
+  .patch(updateUser)
+  .delete(deleteUser);
 
 export default userRouter;
