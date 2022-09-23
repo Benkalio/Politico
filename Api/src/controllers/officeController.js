@@ -4,7 +4,7 @@
 
 import data from "../data.json" assert { type: "json" };
 
-let Offices = [{
+let offices = [{
   
 }];
 

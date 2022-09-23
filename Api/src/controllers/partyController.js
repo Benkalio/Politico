@@ -4,11 +4,7 @@
 
 import data from "../data.json" assert { type: "json" };;
 
-let parties = [
-  {
-
-  }
-]
+let parties = data.Parties;
 
 export const getParties = (req, res) => {
   res.statusCode = 200;

@@ -4,7 +4,7 @@
 
 import data from "../data.json" assert { type: "json" };;
 
-let users = [{}];
+let users = data.Users;
 
 export const getUsers = (req, res) => {
   res.statusCode = 200;
@@ -16,14 +16,18 @@ export const createUser = (req, res) => {
   // id: uuidv4(),
 
   const user = {
+    id: req.body.id,
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     age: req.body.age,
   }
 
-  users.push(data.user);
+  users.push(user);
 
-  res.send(`User ${user.firstName} added to the database.`);
+  res.send({
+    status: 200,
+    data: user,
+  });
 };
 
 export const getUser = (req, res) => {
