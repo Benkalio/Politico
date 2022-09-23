@@ -1,42 +1,27 @@
-import {
-  v4 as uuidv4
-} from 'uuid';
+// import {
+//   v4 as uuidv4
+// } from 'uuid';
 
 import data from "../data.json" assert { type: "json" };;
 
-let users = [{
-    id: uuidv4(),
-    firstName: "Joseph",
-    lastName: "Ikape",
-    age: 30,
-  },
-  {
-    id: uuidv4(),
-    firstName: "Wesley",
-    lastName: "Philip",
-    age: 25,
-  },
-  {
-    id: uuidv4(),
-    firstName: "Christian",
-    lastName: "Bale",
-    age: 46,
-  }
-];
+let users = [{}];
 
 export const getUsers = (req, res) => {
-  res.send(users);
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'application/json');
+  res.send(data.Users);
 };
 
 export const createUser = (req, res) => {
+  // id: uuidv4(),
+
   const user = {
-    id: uuidv4(),
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     age: req.body.age,
   }
 
-  users.push(user);
+  users.push(data.user);
 
   res.send(`User ${user.firstName} added to the database.`);
 };
@@ -46,7 +31,8 @@ export const getUser = (req, res) => {
   const user = users.find(user => user.id === parseInt(userId));
 
   if (!user) {
-    return res.statusCode(404).send("No user with this id")
+    res.statusCode = 404
+    res.send("No user with this id")
   };
 
   res.send(user);
@@ -73,7 +59,7 @@ export const deleteUser = (req, res) => {
   const user = users.find((user) => user.id === userId);
 
   if (!user) {
-    return res.statusCode(400).send("User does not exist")
+    return res.statusCode(400).send("User does not exist");
   };
 
   const indexOfUser = users.indexOf(user);

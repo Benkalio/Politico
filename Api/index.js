@@ -1,8 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import * as fs from 'node:fs/promises';
-import * as http from 'http';
-// import path from 'node:path';
+
 import cors from "cors";
 import morgan from 'morgan';
 
@@ -24,22 +22,16 @@ app.use(express.urlencoded({
 }));
 
 // Enabling CORS
-app.use(cors());
-app.use((req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', "*");
-});
+app.use(cors({ origin: true }));
 
 app.use('/users', userRouter);
 app.use('/parties', partyRoutes);
 
 officeRoutes(app);
 
-app.route("/")
-  .get(async (req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.parse(data));
-  });
+app.get("/", (req, res) => {
+  return res.send("Hello")
+})
 
 app.listen(PORT, hostName, () => {
   console.log(`Server running on http://${hostName}:${PORT}`);

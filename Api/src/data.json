@@ -2,24 +2,21 @@
   "Parties": [
     {
       "id": 1,
-      "partName": "All Progressive Party",
-      "acronym": "APC",
-      "yearCreated": 2010,
-      "presidentialCandidate": "Asiwaju Ahmed Tinubu"
+      "name": "People's Democratic Party",
+      "hqAddress": "Abuja",
+      "logoUrl": ""
     },
     {
       "id": 2,
-      "partName": "Labour Party",
-      "acronym": "LP",
-      "yearCreated": 2015,
-      "presidentialCandidate": "Peter Obi"
+      "name": "Labour Party",
+      "hqAddress": "Lagos",
+      "logoUrl": ""
     },
     {
       "id": 3,
-      "partName": "People's Democratic Party",
-      "acronym": "PDP",
-      "yearCreated": 1999,
-      "presidentialCandidate": "Atiku Abubakar"
+      "name": "All Progressive Party",
+      "hqAddress": "Abuja",
+      "logoUrl": ""
     }
   ],
 

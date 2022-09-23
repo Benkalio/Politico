@@ -1,50 +1,47 @@
-import {
-  v4 as uuidv4
-} from 'uuid';
+// import {
+//   v4 as uuidv4
+// } from 'uuid';
 
 import data from "../data.json" assert { type: "json" };;
 
-let party = [{
-  id: uuidv4(),
-  name: "People's Democratic Party",
-  hqAddress: "Abuja",
-  logoUrl: ""
-}];
+let parties = [
+  {
 
-export const getParties = (req, res, next) => {
+  }
+]
+
+export const getParties = (req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.parse(JSON.stringify(data)));
+  res.send(data.Parties);
 };
 
-export const createParty = (req, res, next) => {
+export const createParty = (req, res) => {
   let party = req.body;
 
-  const partyId = {
+  const partyWithId = {
     ...party,
-    id: uuidv4()
   };
 
-  parties.push(partyId);
+  parties.push(partyWithId);
 
-  res.send(`Party with id ${id} has been added.`)
+  res.send({
+    status: 200,
+    data: partyWithId,
+  });
 };
 
-export const getParty = (req, res, next) => {
-  const {
-    id
-  } = req.params;
-  const foundParty = parties.find((party) => party.id === id);
+export const getParty = (req, res) => {
+  const partyId = req.params.id;
+  const party = parties.find((party) => party.id === partyId);
 
-  res.send(foundParty);
+  res.send(party);
 };
 
 export const updateParty = (req, res, error) => {
-  const {
-    id
-  } = req.params;
+  const partyId = req.params;
 
-  party = parties.find((party) => party.id === id);
+  let party = parties.find((party) => party.id === partyId);
 
   if (!party && error) {
     return res.statusCode(400).send("Party not found.");
@@ -58,7 +55,7 @@ export const updateParty = (req, res, error) => {
 
 export const deleteParty = (req, res, error) => {
   const partyId = req.params.id;
-  party = parties.find((party) => party.id === parseInt(partyId));
+  let party = Parties.find((party) => party.id === parseInt(partyId));
 
   if (!party && error) {
     return res.statusCode(400).send("Party not found.");

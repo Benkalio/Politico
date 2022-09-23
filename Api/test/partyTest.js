@@ -8,7 +8,7 @@ chai.should();
 chai.use(chaiHttp);
 
 // To do
-describe('User API', () => {
+describe('Party API', () => {
   //Testing Different Routes 
   // Get route
   describe("Get /api/src/routes", () => {
@@ -28,7 +28,7 @@ describe('User API', () => {
 
   // Get by id 
   describe("Get /api/src/routes/:id", () => {
-    it("It should get user by id", (done) => {
+    it("It should get party by id", (done) => {
       chai.request(server)
         .get("/api/src/routes")
         .end((err, response) => {
@@ -46,19 +46,20 @@ describe('User API', () => {
 
   // Post route
   describe("Post /api/src/routes", () => {
-    it("It should make a post to users", (done) => {
+    it("It should make a post to parties", (done) => {
       chai.request(server)
         .get("/api/src/routes")
         .end((err, res) => {
-          if (err) res.send({
-            message: "There was an error"
-          });
+          if (err) {
+            res.send({
+              message: "There was an error"
+            });
+          }
           res.should.have.status(200);
-          res.body.should.be.a('array');
-          res.body.age.should.be.a('number');
+          res.body.should.be.an('object');
           done();
         })
-    })
+    });
   });
   // Patch route
 

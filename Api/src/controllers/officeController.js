@@ -1,38 +1,38 @@
-import {
-  v4 as uuidv4
-} from 'uuid';
+// import {
+//   v4 as uuidv4
+// } from 'uuid';
 
-import data from "../data.json" assert { type: "json"};
+import data from "../data.json" assert { type: "json" };
 
-let offices = [{
-  id: uuidv4(),
-  "type": "Federal Lawmaker",
-  "name": "Senate"
+let Offices = [{
+  
 }];
 
 export const getOffices = async (req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
-  res.send(JSON.parse(JSON.stringify(data)));
+  res.send((data.Offices));
+
+  // Leaving this for reference 
+  // console.log(Object.keys(data));
 };
 
-export const createOffice = (req, res) => {
+export const createOffice = (req, res, err) => {
   let office = req.body;
 
   // For creating unique office IDs
-  const officeId = uuidv4();
+  // const officeId = uuidv4();
 
   const officeWithId = {
-    id: officeId,
     ...office
   };
 
   offices.push(officeWithId);
 
-  res.send(JSON.parse({
+  res.send({
     status: 200,
     data: officeWithId,
-  }));
+  });
 };
 
 export const getOffice = (req, res) => {
@@ -40,10 +40,11 @@ export const getOffice = (req, res) => {
     id
   } = req.params;
 
-  const foundOffice = offices.find((office) => office.id === id);
+  const foundOffice = data.Offices.find((office) => office.id === id);
 
   if (!foundOffice) {
-    return res.statusCode(400).send("Office not found.")
+    res.statusCode = 400
+    res.send("Office not found.");
   };
 
   res.send(foundOffice);
@@ -68,7 +69,8 @@ export const deleteOffice = (req, res, error) => {
   const office = offices.find((office) => office.id === parseInt(officeId));
 
   if (!office && error) {
-    return res.statusCode(400).send("Office does not exist")
+    res.statusCode = 400;
+    res.send("Office does not exist");
   };
 
   const officeIndex = offices.indexOf(office);
