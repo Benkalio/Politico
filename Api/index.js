@@ -12,7 +12,7 @@ const app = express();
 import officeRouter from './src/routes/officeRoutes.js';
 import partyRouter from './src/routes/partyRoutes.js';
 import userRouter from './src/routes/userRoutes.js';
-import data from './src/data.json' assert { type: "json" };
+// import data from './src/data.json' assert { type: "json" };
 
 app.use(bodyParser.json());
 app.use(morgan('dev'));
@@ -24,9 +24,8 @@ app.use(express.urlencoded({
 // Enabling CORS
 app.use(cors({ origin: true }));
 
-app.use('/users', userRouter);
-app.use('/parties', partyRouter);
-
+userRouter(app);
+partyRouter(app);
 officeRouter(app);
 
 app.get("/", (req, res) => {

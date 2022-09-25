@@ -8,20 +8,19 @@ import {
   deleteUser
 } from "../controllers/userController.js";
 
-const userRouter = express.Router();
-
-userRouter.route("/")
-  .all((req, res, next) => {
+const userRouter = (app) => {
+  app.all((req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json')
     next();
-  })
-  .get(getUsers)
-  .post(createUser);
+  });
+  app.get('/users', getUsers);
+  app.post('/users', createUser);
 
-userRouter.route("/:id")
-  .get(getUser)
-  .patch(updateUser)
-  .delete(deleteUser);
+  app.get('/users/:id', getUser);
+  app.patch('/users/:id', updateUser);
+  app.delete('/users/:id', deleteUser);
+  
+};
 
 export default userRouter;

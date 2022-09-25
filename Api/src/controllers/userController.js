@@ -4,12 +4,14 @@
 
 import data from "../data.json" assert { type: "json" };;
 
-let users = data.Users;
+// let users = data.Users;
+let users = [];
 
 export const getUsers = (req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json');
-  res.send(data.Users);
+  res.send({
+    status: 200,
+    users: data.Users
+  });
 };
 
 export const createUser = (req, res) => {
@@ -61,7 +63,10 @@ export const updateUser = (req, res) => {
   user.lastName = req.user.lastName || user.lastName;
   user.age = req.body.age || user.age;
 
-  res.send(`username has been updated to ${req.body.firstName}.age has been updated to ${req.body.age}`)
+  res.send({
+    status: 200,
+    data: user
+  })
 };
 
 export const deleteUser = (req, res) => {
@@ -76,5 +81,8 @@ export const deleteUser = (req, res) => {
   const indexOfUser = users.indexOf(user);
   user.splice(indexOfUser, 1);
 
-  res.send(`user with id ${req.params.id} has been deleted`);
+  res.send({
+    status: 200,
+    message: `user with id ${req.params.id} has been deleted`
+  });
 };

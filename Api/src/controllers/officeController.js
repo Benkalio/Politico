@@ -61,7 +61,10 @@ export const updateOffice = (req, res, error) => {
   office.type = req.body.type || office.type;
   office.name = req.body.name || office.type;
 
-  res.send(`Office with the id ${id} has been updated.`)
+  res.send({
+    status: 200,
+    data: office
+  })
 };
 
 export const deleteOffice = (req, res, error) => {
@@ -76,5 +79,8 @@ export const deleteOffice = (req, res, error) => {
   const officeIndex = offices.indexOf(office);
   office.splice(officeIndex, 1)
 
-  res.send(`Government office with the id ${id} deleted from the database.`);
+  res.send({
+    status: 200,
+    message: `Government office with the id ${id} deleted from the database.`,
+  });
 };

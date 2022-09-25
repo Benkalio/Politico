@@ -2,28 +2,35 @@
 //   v4 as uuidv4
 // } from 'uuid';
 
+import fs from 'fs';
+import path from 'path';
+const __dirname = path.resolve();
+
 import data from "../data.json" assert { type: "json" };;
 
-let parties = data.Parties;
+// let parties = data.Parties;
+
+let parties = [{
+  id: "",
+  name: "",
+  hqAddress: "",
+  logoUrl: ""
+}];
+
+// const dataFile = (__dirname + '../data.json');
 
 export const getParties = (req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json');
   res.send(data.Parties);
 };
 
 export const createParty = (req, res) => {
   let party = req.body;
 
-  const partyWithId = {
-    ...party,
-  };
-
-  parties.push(partyWithId);
+  data.Parties.push(party);
 
   res.send({
     status: 200,
-    data: partyWithId,
+    data: party,
   });
 };
 
@@ -47,18 +54,22 @@ export const updateParty = (req, res, error) => {
   let party = parties.find((party) => party.id === parseInt(partyId));
 
   if (!party && error) {
-    return res.statusCode(400).send("Party not found.");
+    res.statusCode = 400
+    res.send("There is no record of this party.");
   };
 
   party.name = req.body.name || party.name;
   party.hqAddress = req.body.hqAddress || party.hq.hqAddress;
 
-  res.send(`Party with id ${id} has been updated.`);
+  res.send({
+    status: 200,
+    data: party
+  });
 };
 
 export const deleteParty = (req, res, error) => {
   const partyId = req.params.id;
-  let party = Parties.find((party) => party.id === parseInt(partyId));
+  let party = parties.find((party) => party.id === parseInt(partyId));
 
   if (!party && error) {
     return res.statusCode(400).send("Party not found.");
@@ -67,5 +78,8 @@ export const deleteParty = (req, res, error) => {
   const partyIndex = parties.indexOf(party);
   party.splice(partyIndex, 1)
 
-  res.send(`Deleted party with ${partyId}.`);
+  res.send({
+    status: 200,
+    data: party,
+  });
 };
