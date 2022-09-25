@@ -29,7 +29,11 @@ export const createParty = (req, res) => {
 
 export const getParty = (req, res) => {
   const partyId = req.params.id;
-  const party = parties.find((party) => party.id === partyId);
+  const party = parties.find((party) => party.id === parseInt(partyId));
+
+  if (!party) {
+    return "Party does not exit";
+  };
 
   res.send(party);
 };
@@ -37,7 +41,7 @@ export const getParty = (req, res) => {
 export const updateParty = (req, res, error) => {
   const partyId = req.params;
 
-  let party = parties.find((party) => party.id === partyId);
+  let party = parties.find((party) => party.id === parseInt(partyId));
 
   if (!party && error) {
     return res.statusCode(400).send("Party not found.");

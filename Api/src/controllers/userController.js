@@ -20,6 +20,10 @@ export const createUser = (req, res) => {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     age: req.body.age,
+    email: req.body.email,
+    phoneNumber: req.body.phoneNumber,
+    passportURL: req.body.passportURL,
+    isAdmin: false
   }
 
   users.push(user);
@@ -32,7 +36,7 @@ export const createUser = (req, res) => {
 
 export const getUser = (req, res) => {
   const userId = req.params.id;
-  const user = users.find(user => user.id === parseInt(userId));
+  const user = users.find((user) => user.id === parseInt(userId));
 
   if (!user) {
     res.statusCode = 404
@@ -44,7 +48,7 @@ export const getUser = (req, res) => {
 
 export const updateUser = (req, res) => {
   const userId = req.params.id;
-  const user = users.find((user) => user.id === userId);
+  const user = users.find((user) => user.id === parseInt(userId));
 
   if (!user) {
     return res.statusCode(400).send("User does not exist")
@@ -60,7 +64,7 @@ export const updateUser = (req, res) => {
 export const deleteUser = (req, res) => {
 
   const userId = req.params.id;
-  const user = users.find((user) => user.id === userId);
+  const user = users.find((user) => user.id === parseInt(userId));
 
   if (!user) {
     return res.statusCode(400).send("User does not exist");

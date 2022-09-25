@@ -4,9 +4,7 @@
 
 import data from "../data.json" assert { type: "json" };
 
-let offices = [{
-  
-}];
+let offices = data.Offices;
 
 export const getOffices = async (req, res) => {
   res.statusCode = 200;
@@ -40,7 +38,7 @@ export const getOffice = (req, res) => {
     id
   } = req.params;
 
-  const foundOffice = data.Offices.find((office) => office.id === id);
+  const foundOffice = data.Offices.find((office) => office.id === parseInt(id));
 
   if (!foundOffice) {
     res.statusCode = 400
