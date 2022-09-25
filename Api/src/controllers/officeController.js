@@ -1,10 +1,13 @@
 // import {
 //   v4 as uuidv4
 // } from 'uuid';
+import fs from 'fs';
 
 import data from "../data.json" assert { type: "json" };
 
 let offices = data.Offices;
+
+// console.log(offices);
 
 export const getOffices = async (req, res) => {
   res.statusCode = 200;
@@ -21,15 +24,11 @@ export const createOffice = (req, res, err) => {
   // For creating unique office IDs
   // const officeId = uuidv4();
 
-  const officeWithId = {
-    ...office
-  };
-
-  offices.push(officeWithId);
+  offices.push(office);
 
   res.send({
     status: 200,
-    data: officeWithId,
+    data: office,
   });
 };
 
@@ -45,7 +44,10 @@ export const getOffice = (req, res) => {
     res.send("Office not found.");
   };
 
-  res.send(foundOffice);
+  res.send({
+    status: 200,
+    data: foundOffice
+  });
 };
 
 export const updateOffice = (req, res, error) => {

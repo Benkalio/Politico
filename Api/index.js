@@ -9,8 +9,8 @@ const PORT = process.env.PORT || 4000;
 
 const app = express();
 
-import officeRoutes from './src/routes/officeRoutes.js';
-import partyRoutes from './src/routes/partyRoutes.js';
+import officeRouter from './src/routes/officeRoutes.js';
+import partyRouter from './src/routes/partyRoutes.js';
 import userRouter from './src/routes/userRoutes.js';
 import data from './src/data.json' assert { type: "json" };
 
@@ -25,9 +25,9 @@ app.use(express.urlencoded({
 app.use(cors({ origin: true }));
 
 app.use('/users', userRouter);
-app.use('/parties', partyRoutes);
+app.use('/parties', partyRouter);
 
-officeRoutes(app);
+officeRouter(app);
 
 app.get("/", (req, res) => {
   return res.send("Hello")

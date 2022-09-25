@@ -23,7 +23,7 @@
   "Offices": [
     {
       "id": 1,
-      "post": "Presidency",
+      "type": "Presidency",
       "name": "President"
     },
     {
@@ -33,7 +33,7 @@
     },
     {
       "id": 3,
-      "post": "Federal Lawmaker",
+      "type": "Federal Lawmaker",
       "name": "Senate"
     }
   ],

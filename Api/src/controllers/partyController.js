@@ -35,7 +35,10 @@ export const getParty = (req, res) => {
     return "Party does not exit";
   };
 
-  res.send(party);
+  res.send({
+    status: 200,
+    data: party
+  });
 };
 
 export const updateParty = (req, res, error) => {

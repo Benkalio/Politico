@@ -43,7 +43,10 @@ export const getUser = (req, res) => {
     res.send("No user with this id")
   };
 
-  res.send(user);
+  res.send({
+    status: 200,
+    data: user
+  });
 }
 
 export const updateUser = (req, res) => {
