@@ -1,3 +1,4 @@
+// Leaving this here for future reference to create dynamic id 
 // import {
 //   v4 as uuidv4
 // } from 'uuid';
@@ -8,16 +9,12 @@ const __dirname = path.resolve();
 
 import data from "../data.json" assert { type: "json" };;
 
-// let parties = data.Parties;
-
 let parties = [{
   id: "",
   name: "",
   hqAddress: "",
   logoUrl: ""
 }];
-
-// const dataFile = (__dirname + '../data.json');
 
 export const getParties = (req, res) => {
   res.send(data.Parties);
@@ -50,6 +47,7 @@ export const getParty = (req, res) => {
 
 export const updateParty = (req, res, error) => {
   const partyId = req.params;
+  const { id, name, hqAddress, logoUrl } = req.body;
 
   let party = parties.find((party) => party.id === parseInt(partyId));
 
@@ -58,8 +56,10 @@ export const updateParty = (req, res, error) => {
     res.send("There is no record of this party.");
   };
 
-  party.name = req.body.name || party.name;
-  party.hqAddress = req.body.hqAddress || party.hq.hqAddress;
+  party.id = id || party.id;
+  party.name = name || party.name;
+  party.hqAddress = hqAddress || party.hqAddress;
+  party.logoUrl = logoUrl || party.logoUrl;
 
   res.send({
     status: 200,

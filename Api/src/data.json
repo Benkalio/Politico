@@ -58,5 +58,15 @@
       "passportURL": "image.jpg",
       "isAdmin": false
     }
+  ],
+
+  "Vote": [
+    {
+      "id": 1,
+      "createdOn": 2,
+      "createdBy": 2,
+      "office": 2, 
+      "candidate": 2
+    }
   ]
 }

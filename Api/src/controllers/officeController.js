@@ -1,35 +1,63 @@
+// Leaving this code for future reference on unique ID generation
 // import {
 //   v4 as uuidv4
 // } from 'uuid';
+
 import fs from 'fs';
 
 import data from "../data.json" assert { type: "json" };
 
-let offices = data.Offices;
+let offices = [];
 
-// console.log(offices);
+export const getOffices = (req, res) => {
+  res.send({
+    status: 200,
+    data: data.Offices
+  });
 
-export const getOffices = async (req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json');
-  res.send((data.Offices));
-
-  // Leaving this for reference 
+  // Leaving this for reference on checking object keys
   // console.log(Object.keys(data));
 };
 
 export const createOffice = (req, res, err) => {
-  let office = req.body;
+  const {
+    id,
+    type,
+    name
+  } = req.body;
 
-  // For creating unique office IDs
+  const newOffice = {
+    id,
+    type,
+    name
+  };
+
+  // Leaving this for creating unique office IDs
   // const officeId = uuidv4();
 
-  offices.push(office);
-
-  res.send({
-    status: 200,
-    data: office,
+  fs.writeFile('../data.json', JSON.stringify(newOffice), err => {
+    if (!err) {
+      res.send({
+        status: 404,
+        message: err
+      });
+    }
+    else {
+      return({
+        status: 200,
+        data: newOffice
+      })
+    }
   });
+
+
+// This is commented because we are trying other methods of writing to the JSOn file
+  // offices.push(office);
+  
+  // res.send({
+  //   status: 200,
+  //   data: office,
+  // });
 };
 
 export const getOffice = (req, res) => {
@@ -53,13 +81,19 @@ export const getOffice = (req, res) => {
 export const updateOffice = (req, res, error) => {
   const officeId = req.params.id;
   const office = offices.find((office) => office.id === parseInt(officeId));
+  const {
+    id,
+    type,
+    name
+  } = req.body;
 
   if (!office && error) {
     return res.statusCode(400).send("Office does not exist")
   };
 
-  office.type = req.body.type || office.type;
-  office.name = req.body.name || office.type;
+  office.id = id || office.id;
+  office.type = type || office.type;
+  office.name = name || office.name;
 
   res.send({
     status: 200,

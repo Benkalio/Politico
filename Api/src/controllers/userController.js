@@ -2,7 +2,7 @@
 //   v4 as uuidv4
 // } from 'uuid';
 
-import data from "../data.json" assert { type: "json" };;
+import data from "../data.json" assert { type: "json" };
 
 // let users = data.Users;
 let users = [];
@@ -15,16 +15,24 @@ export const getUsers = (req, res) => {
 };
 
 export const createUser = (req, res) => {
-  // id: uuidv4(),
+  const {
+    id,
+    firstName,
+    lastName,
+    age,
+    email,
+    phoneNumber,
+    passportURL,
+  } = req.body;
 
   const user = {
-    id: req.body.id,
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    age: req.body.age,
-    email: req.body.email,
-    phoneNumber: req.body.phoneNumber,
-    passportURL: req.body.passportURL,
+    id: id,
+    firstName: firstName,
+    lastName: lastName,
+    age: age,
+    email: email,
+    phoneNumber: phoneNumber,
+    passportURL: passportURL,
     isAdmin: false
   }
 
@@ -59,9 +67,17 @@ export const updateUser = (req, res) => {
     return res.statusCode(400).send("User does not exist")
   };
 
-  user.firstName = req.body.firstName || user.firstName;
-  user.lastName = req.user.lastName || user.lastName;
-  user.age = req.body.age || user.age;
+  const {
+    id,
+    firstName,
+    lastName,
+    age
+  } = req.body;
+
+  user.id = id || user.id;
+  user.firstName = firstName || user.firstName;
+  user.lastName = lastName || user.lastName;
+  user.age = age || user.age;
 
   res.send({
     status: 200,
