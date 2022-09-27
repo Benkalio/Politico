@@ -1,42 +1,33 @@
+/* eslint-disable consistent-return */
 // import {
 //   v4 as uuidv4
 // } from 'uuid';
 
-import data from "../data.json" assert { type: "json" };
+import data from '../data.json';
 
 // let users = data.Users;
-let users = [];
+const users = [];
 
 export const getUsers = (req, res) => {
   res.send({
     status: 200,
-    users: data.Users
+    data: data.Users,
   });
 };
 
 export const createUser = (req, res) => {
-  const {
-    id,
-    firstName,
-    lastName,
-    age,
-    email,
-    phoneNumber,
-    passportURL,
-  } = req.body;
-
   const user = {
-    id: id,
-    firstName: firstName,
-    lastName: lastName,
-    age: age,
-    email: email,
-    phoneNumber: phoneNumber,
-    passportURL: passportURL,
-    isAdmin: false
-  }
+    id: req.body.id,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    age: req.body.age,
+    email: req.body.email,
+    phoneNumber: req.body.phoneNumber,
+    passportURL: req.body.passportURL,
+    isAdmin: false,
+  };
 
-  users.push(user);
+  data.Users.push(user);
 
   res.send({
     status: 200,
@@ -46,59 +37,58 @@ export const createUser = (req, res) => {
 
 export const getUser = (req, res) => {
   const userId = req.params.id;
-  const user = users.find((user) => user.id === parseInt(userId));
+  const newUser = data.Users.find((user) => user.id === parseInt(userId, 10));
 
-  if (!user) {
-    res.statusCode = 404
-    res.send("No user with this id")
-  };
+  if (!newUser) {
+    res.statusCode = 404;
+    res.send('No user with this id');
+  }
 
   res.send({
     status: 200,
-    data: user
+    data: newUser,
   });
-}
+};
 
 export const updateUser = (req, res) => {
   const userId = req.params.id;
-  const user = users.find((user) => user.id === parseInt(userId));
+  const newUser = data.Users.find((user) => user.id === parseInt(userId, 10));
 
-  if (!user) {
-    return res.statusCode(400).send("User does not exist")
-  };
+  if (!newUser) {
+    return res.statusCode(400).send('User does not exist');
+  }
 
   const {
     id,
     firstName,
     lastName,
-    age
+    age,
   } = req.body;
 
-  user.id = id || user.id;
-  user.firstName = firstName || user.firstName;
-  user.lastName = lastName || user.lastName;
-  user.age = age || user.age;
+  newUser.id = id || newUser.id;
+  newUser.firstName = firstName || newUser.firstName;
+  newUser.lastName = lastName || newUser.lastName;
+  newUser.age = age || newUser.age;
 
   res.send({
     status: 200,
-    data: user
-  })
+    data: newUser,
+  });
 };
 
 export const deleteUser = (req, res) => {
-
   const userId = req.params.id;
-  const user = users.find((user) => user.id === parseInt(userId));
+  const newUser = users.find((user) => user.id === parseInt(userId, 10));
 
-  if (!user) {
-    return res.statusCode(400).send("User does not exist");
-  };
+  if (!newUser) {
+    return res.statusCode(400).send('User does not exist');
+  }
 
-  const indexOfUser = users.indexOf(user);
-  user.splice(indexOfUser, 1);
+  const indexOfUser = users.indexOf(newUser);
+  newUser.splice(indexOfUser, 1);
 
   res.send({
     status: 200,
-    message: `user with id ${req.params.id} has been deleted`
+    message: `user with id ${req.params.id} has been deleted`,
   });
 };

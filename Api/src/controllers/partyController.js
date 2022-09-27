@@ -3,11 +3,7 @@
 //   v4 as uuidv4
 // } from 'uuid';
 
-import fs from 'fs';
-import path from 'path';
-const __dirname = path.resolve();
-
-import data from "../data.json" assert { type: "json" };;
+import data from "../data.json" assert { type: "json" };
 
 let parties = [{
   id: "",

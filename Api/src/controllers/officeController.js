@@ -5,7 +5,7 @@
 
 import fs from 'fs';
 
-import data from "../data.json" assert { type: "json" };
+import data from "../data.json";
 
 let offices = [];
 
@@ -32,32 +32,22 @@ export const createOffice = (req, res, err) => {
     name
   };
 
-  // Leaving this for creating unique office IDs
-  // const officeId = uuidv4();
+  if (!err) {
+    res.send({
+      status: 404,
+      message: err
+    });
 
-  fs.writeFile('../data.json', JSON.stringify(newOffice), err => {
-    if (!err) {
-      res.send({
-        status: 404,
-        message: err
-      });
-    }
-    else {
-      return({
-        status: 200,
-        data: newOffice
-      })
-    }
+    // Leaving this for creating unique office IDs
+    // const officeId = uuidv4();
+  };
+
+  offices.push(newOffice);
+
+  res.send({
+    status: 200,
+    data: newOffice,
   });
-
-
-// This is commented because we are trying other methods of writing to the JSOn file
-  // offices.push(office);
-  
-  // res.send({
-  //   status: 200,
-  //   data: office,
-  // });
 };
 
 export const getOffice = (req, res) => {
@@ -118,3 +108,4 @@ export const deleteOffice = (req, res, error) => {
     message: `Government office with the id ${id} deleted from the database.`,
   });
 };
+}

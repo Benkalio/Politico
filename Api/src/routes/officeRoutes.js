@@ -1,12 +1,10 @@
-import express from 'express';
-
 import {
   getOffices,
   createOffice,
   getOffice,
   deleteOffice,
   updateOffice,
-} from '../controllers/officeController.js';
+} from '../controllers/officeController';
 
 const officeRouter = (app) => {
   app.get('/offices', getOffices);
