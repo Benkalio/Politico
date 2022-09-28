@@ -19,15 +19,6 @@ export const getUsers = (req, res) => {
 
 export const createUser = (req, res) => {
   const user = {
-    id,
-    firstName,
-    lastName,
-    age,
-    email,
-    phoneNumber,
-    passportURL,
-    isAdmin: false,
-  }
     id: req.body.id,
     firstName: req.body.firstName,
     lastName: req.body.lastName,

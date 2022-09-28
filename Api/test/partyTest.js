@@ -1,64 +1,64 @@
-import chai from "chai";
-import chaiHttp from "chai-http";
+/* eslint-disable consistent-return */
+/* eslint-disable no-undef */
+import chai from 'chai';
+import chaiHttp from 'chai-http';
 
-const expect = chai.expect;
-
-//Assertion
+// Assertion
 chai.should();
 chai.use(chaiHttp);
 
 // To do
 describe('Party API', () => {
-  //Testing Different Routes 
+  // Testing Different Routes
   // Get route
-  describe("Get /api/src/routes", () => {
-    it("It should Get all parties", (done) => {
+  describe('Get /api/src/routes', () => {
+    it('It should Get all parties', (done) => {
       chai.request(server)
-        .get("/api/src/routes")
+        .get('/api/src/routes')
         .end((err, res) => {
           if (err) {
             return err;
-          };
+          }
           res.should.have.status(200);
           res.body.should.be.a('array');
           done();
         });
-    })
+    });
   });
 
-  // Get by id 
-  describe("Get /api/src/routes/:id", () => {
-    it("It should get party by id", (done) => {
+  // Get by id
+  describe('Get /api/src/routes/:id', () => {
+    it('It should get party by id', (done) => {
       chai.request(server)
-        .get("/api/src/routes")
+        .get('/api/src/routes')
         .end((err, response) => {
           if (err) {
             response.send({
-              message: "There was an error"
+              message: 'There was an error',
             });
           }
           res.should.have.status(200);
           res.body.should.be.an('object');
           done();
         });
-    })
+    });
   });
 
   // Post route
-  describe("Post /api/src/routes", () => {
-    it("It should make a post to parties", (done) => {
+  describe('Post /api/src/routes', () => {
+    it('It should make a post to parties', (done) => {
       chai.request(server)
-        .get("/api/src/routes")
-        .end((err, res) => {
+        .post('/api/src/routes')
+        .send((err, res) => {
           if (err) {
             res.send({
-              message: "There was an error"
+              message: 'There was an error',
             });
           }
           res.should.have.status(200);
           res.body.should.be.an('object');
           done();
-        })
+        });
     });
   });
   // Patch route
