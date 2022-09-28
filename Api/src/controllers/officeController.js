@@ -1,18 +1,17 @@
+/* eslint-disable consistent-return */
 // Leaving this code for future reference on unique ID generation
 // import {
 //   v4 as uuidv4
 // } from 'uuid';
 
-import fs from 'fs';
+import data from '../data.json';
 
-import data from "../data.json";
-
-let offices = [];
+const offices = [];
 
 export const getOffices = (req, res) => {
   res.send({
     status: 200,
-    data: data.Offices
+    data: data.Offices,
   });
 
   // Leaving this for reference on checking object keys
@@ -23,24 +22,21 @@ export const createOffice = (req, res, err) => {
   const {
     id,
     type,
-    name
+    name,
   } = req.body;
 
   const newOffice = {
     id,
     type,
-    name
+    name,
   };
 
   if (!err) {
     res.send({
       status: 404,
-      message: err
+      message: err,
     });
-
-    // Leaving this for creating unique office IDs
-    // const officeId = uuidv4();
-  };
+  }
 
   offices.push(newOffice);
 
@@ -52,60 +48,60 @@ export const createOffice = (req, res, err) => {
 
 export const getOffice = (req, res) => {
   const {
-    id
+    id,
   } = req.params;
 
-  const foundOffice = data.Offices.find((office) => office.id === parseInt(id));
+  const foundOffice = data.Offices.find((office) => office.id === parseInt(id, 10));
 
   if (!foundOffice) {
-    res.statusCode = 400
-    res.send("Office not found.");
-  };
+    res.statusCode = 400;
+    res.send('Office not found.');
+  }
 
   res.send({
     status: 200,
-    data: foundOffice
+    data: foundOffice,
   });
 };
 
 export const updateOffice = (req, res, error) => {
   const officeId = req.params.id;
-  const office = offices.find((office) => office.id === parseInt(officeId));
+  const updatedOffice = data.Offices.find((office) => office.id === parseInt(officeId, 10));
   const {
     id,
     type,
-    name
+    name,
   } = req.body;
 
-  if (!office && error) {
-    return res.statusCode(400).send("Office does not exist")
-  };
+  if (!updatedOffice && error) {
+    res.statusCode(400);
+    res.send('Office does not exist');
+  }
 
-  office.id = id || office.id;
-  office.type = type || office.type;
-  office.name = name || office.name;
+  updatedOffice.id = id || updatedOffice.id;
+  updatedOffice.type = type || updatedOffice.type;
+  updatedOffice.name = name || updatedOffice.name;
 
   res.send({
     status: 200,
-    data: office
-  })
+    data: updatedOffice,
+  });
 };
 
 export const deleteOffice = (req, res, error) => {
   const officeId = req.params.id;
-  const office = offices.find((office) => office.id === parseInt(officeId));
+  const deletedOffice = data.Offices.find((office) => office.id === parseInt(officeId, 10));
 
-  if (!office && error) {
+  if (!deletedOffice && error) {
     res.statusCode = 400;
-    res.send("Office does not exist");
-  };
+    res.send('Office does not exist');
+  }
 
-  const officeIndex = offices.indexOf(office);
-  office.splice(officeIndex, 1)
+  const officeIndex = offices.indexOf(deletedOffice);
+  deletedOffice.splice(officeIndex, 1);
 
   res.send({
     status: 200,
-    message: `Government office with the id ${id} deleted from the database.`,
+    data: deletedOffice,
   });
 };
-}
