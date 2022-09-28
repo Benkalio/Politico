@@ -1,15 +1,16 @@
-// Leaving this here for future reference to create dynamic id 
+/* eslint-disable consistent-return */
+// Leaving this here for future reference to create dynamic id
 // import {
 //   v4 as uuidv4
 // } from 'uuid';
 
-import data from "../data.json" assert { type: "json" };
+import data from '../data.json';
 
-let parties = [{
-  id: "",
-  name: "",
-  hqAddress: "",
-  logoUrl: ""
+const parties = [{
+  id: 2,
+  name: 'APGA',
+  hqAddress: 'Abuja',
+  logoUrl: 'logo.img',
 }];
 
 export const getParties = (req, res) => {
@@ -17,7 +18,7 @@ export const getParties = (req, res) => {
 };
 
 export const createParty = (req, res) => {
-  let party = req.body;
+  const party = req.body;
 
   data.Parties.push(party);
 
@@ -29,53 +30,59 @@ export const createParty = (req, res) => {
 
 export const getParty = (req, res) => {
   const partyId = req.params.id;
-  const party = parties.find((party) => party.id === parseInt(partyId));
+  const singleParty = data.Parties.find((party) => party.id === parseInt(partyId, 10));
 
-  if (!party) {
-    return "Party does not exit";
-  };
+  if (!singleParty) {
+    return 'Party does not exit';
+  }
 
   res.send({
     status: 200,
-    data: party
+    data: singleParty,
   });
 };
 
 export const updateParty = (req, res, error) => {
   const partyId = req.params;
-  const { id, name, hqAddress, logoUrl } = req.body;
+  const {
+    id,
+    name,
+    hqAddress,
+    logoUrl,
+  } = req.body;
 
-  let party = parties.find((party) => party.id === parseInt(partyId));
+  const updatedParty = data.parties.find((party) => party.id === parseInt(partyId, 10));
 
-  if (!party && error) {
-    res.statusCode = 400
-    res.send("There is no record of this party.");
-  };
+  if (!updatedParty && error) {
+    res.statusCode = 400;
+    res.send('There is no record of this party.');
+  }
 
-  party.id = id || party.id;
-  party.name = name || party.name;
-  party.hqAddress = hqAddress || party.hqAddress;
-  party.logoUrl = logoUrl || party.logoUrl;
+  updatedParty.id = id || updatedParty.id;
+  updatedParty.name = name || updatedParty.name;
+  updatedParty.hqAddress = hqAddress || updatedParty.hqAddress;
+  updatedParty.logoUrl = logoUrl || updatedParty.logoUrl;
 
   res.send({
     status: 200,
-    data: party
+    data: updatedParty,
   });
 };
 
 export const deleteParty = (req, res, error) => {
   const partyId = req.params.id;
-  let party = parties.find((party) => party.id === parseInt(partyId));
+  const deletedParty = data.Parties.find((party) => party.id === parseInt(partyId, 10));
 
-  if (!party && error) {
-    return res.statusCode(400).send("Party not found.");
-  };
+  if (!deletedParty && error) {
+    res.statusCode(400);
+    res.send('Party not found.');
+  }
 
-  const partyIndex = parties.indexOf(party);
-  party.splice(partyIndex, 1)
+  const partyIndex = parties.indexOf(partyId);
+  partyId.splice(partyIndex, 1);
 
   res.send({
     status: 200,
-    data: party,
+    data: deletedParty,
   });
 };
