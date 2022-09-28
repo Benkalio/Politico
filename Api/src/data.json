@@ -55,7 +55,7 @@
       "otherName": "Peter",
       "email": "gobiwis@gmail.com",
       "phoneNumber": 3843833432,
-      "passportURL": "image.jpg",
+      "passportUrl": "image.jpg",
       "isAdmin": false
     }
   ],

@@ -3,41 +3,38 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 
-// Assertion
 chai.should();
 chai.use(chaiHttp);
 
-// To do
 describe('Party API', () => {
-  // Testing Different Routes
-  // Get route
   describe('Get /api/src/routes', () => {
     it('It should Get all parties', (done) => {
       chai.request(server)
-        .get('/api/src/routes')
+        .get('/parties')
         .end((err, res) => {
           if (err) {
-            return err;
+            return ({
+              message: 'There was an error getting Parties.',
+            });
           }
-          res.should.have.status(200);
+          res.should.have.status(201);
           res.body.should.be.a('array');
           done();
         });
     });
   });
 
-  // Get by id
-  describe('Get /api/src/routes/:id', () => {
+  describe('Get /api/src/routes', () => {
     it('It should get party by id', (done) => {
       chai.request(server)
-        .get('/api/src/routes')
-        .end((err, response) => {
+        .get('/parties/:id')
+        .end((err, res) => {
           if (err) {
-            response.send({
-              message: 'There was an error',
+            return ({
+              message: 'There was an error getting Party.',
             });
           }
-          res.should.have.status(200);
+          res.should.have.status(201);
           res.body.should.be.an('object');
           done();
         });
@@ -48,20 +45,67 @@ describe('Party API', () => {
   describe('Post /api/src/routes', () => {
     it('It should make a post to parties', (done) => {
       chai.request(server)
-        .post('/api/src/routes')
+        .post('/parties')
         .send((err, res) => {
           if (err) {
             res.send({
-              message: 'There was an error',
+              message: 'There was an error creating party.',
             });
           }
-          res.should.have.status(200);
+
+          partyProperties = res.body.should.have.property;
+
+          res.should.have.status(201);
           res.body.should.be.an('object');
+          partyProperties('id').eq(Number);
+          partyProperties('name').eq(String);
+          partyProperties('hqAddress').eq(String);
+          partyProperties('logoUrl').eq(String);
+
           done();
         });
     });
   });
-  // Patch route
 
-  // Delete route
+  describe('Patch /api/src/routes', () => {
+    it('It should update a party', (done) => {
+      chai.request(server)
+        .post('/parties/:id')
+        .send((err, res) => {
+          if (err) {
+            res.send({
+              message: 'There was an error updating party.',
+            });
+          }
+
+          const partyProperties = res.body.should.have.property;
+
+          res.should.have.status(200);
+          res.body.should.be.an('object');
+          partyProperties('id').eq(Number);
+          partyProperties('name').eq(String);
+          partyProperties('hqAddress').eq(String);
+          partyProperties('logoUrl').eq(String);
+
+          done();
+        });
+    });
+  });
+
+  describe('Delete /api/src/routes', () => {
+    it('It should delete a party.', (done) => {
+      chai.request(server)
+        .delete('/parties/:id')
+        .end((err, res) => {
+          if (err) {
+            return ({
+              message: 'There was an error deleting party.',
+            });
+          }
+
+          res.should.have.status(200);
+          done();
+        });
+    });
+  });
 });
