@@ -17,18 +17,33 @@ export const getUsers = (req, res) => {
   });
 };
 
-export const createUser = (req, res) => {
+export const createUser = (req, res, err) => {
+  const {
+    id,
+    firstName,
+    lastName,
+    otherName,
+    email,
+    phoneNumber,
+    passportUrl,
+    isAdmin,
+  } = req.body;
+
   const user = {
-    id: req.body.id,
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    age: req.body.age,
-    email: req.body.email,
-    phoneNumber: req.body.phoneNumber,
-    passportURL: req.body.passportURL,
-    isAdmin: false,
+    id,
+    firstName,
+    lastName,
+    otherName,
+    email,
+    phoneNumber,
+    passportUrl,
+    isAdmin,
   };
 
+  if (err) {
+    res.statusCode = 400;
+    res.send('Error creating user.');
+  }
   data.Users.push(user);
 
   res.send({
@@ -64,13 +79,19 @@ export const updateUser = (req, res) => {
     id,
     firstName,
     lastName,
-    age,
+    otherName,
+    email,
+    phoneNumber,
+    passportUrl,
   } = req.body;
 
   newUser.id = id || newUser.id;
   newUser.firstName = firstName || newUser.firstName;
   newUser.lastName = lastName || newUser.lastName;
-  newUser.age = age || newUser.age;
+  newUser.otherName = otherName || newUser.otherName;
+  newUser.email = email || newUser.email;
+  newUser.passportUrl = passportUrl || newUser.passportUrl;
+  newUser.phoneNumber = phoneNumber || newUser.phoneNumber;
 
   res.send({
     status: 200,
@@ -83,7 +104,8 @@ export const deleteUser = (req, res) => {
   const newUser = users.find((user) => user.id === parseInt(userId, 10));
 
   if (!newUser) {
-    return res.statusCode(400).send('User does not exist');
+    res.statusCode = 400;
+    res.send('User does not exist');
   }
 
   const indexOfUser = users.indexOf(newUser);
