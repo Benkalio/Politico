@@ -7,7 +7,7 @@ chai.should();
 chai.use(chaiHttp);
 
 describe('Office API', () => {
-  describe('Get /api/src/routes', () => {
+  describe('Get /offices', () => {
     it('It should Get all offices', (done) => {
       chai.request(server)
         .get('/offices')
@@ -22,7 +22,7 @@ describe('Office API', () => {
     });
   });
 
-  describe('Get /api/src/routes/:id', () => {
+  describe('Get /offices/:id', () => {
     it('It should get office by id', (done) => {
       chai.request(server)
         .get('/offices/:id')
@@ -39,7 +39,7 @@ describe('Office API', () => {
     });
   });
 
-  describe('Post /api/src/routes', () => {
+  describe('Post /offices', () => {
     it('It should make a post to parties', (done) => {
       chai.request(server)
         .post('/offices')
@@ -59,7 +59,7 @@ describe('Office API', () => {
     });
   });
 
-  describe('Patch /api/src/routes', () => {
+  describe('Patch /offices/:id', () => {
     it('It should make an update to an existing office.', (done) => {
       chai.request(server)
         .patch('/offices/:id')
@@ -79,7 +79,7 @@ describe('Office API', () => {
     });
   });
 
-  describe('Delete /api/src/routes', () => {
+  describe('Delete /offices/:id', () => {
     it('It should delete an existing office.', (done) => {
       chai.request(server)
         .delete('/offices/:id')

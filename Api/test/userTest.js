@@ -7,7 +7,7 @@ chai.should();
 chai.use(chaiHttp);
 
 describe('User API', () => {
-  describe('Get /api/src/routes', () => {
+  describe('Get /users', () => {
     it('It should Get all users', (done) => {
       chai.request(server)
         .get('/users')
@@ -22,7 +22,7 @@ describe('User API', () => {
     });
   });
 
-  describe('Get /api/src/routes', () => {
+  describe('Get /users/:id', () => {
     it('It should get user by id', (done) => {
       chai.request(server)
         .get('/users/:id')
@@ -40,7 +40,7 @@ describe('User API', () => {
     });
   });
 
-  describe('Post /api/src/routes', () => {
+  describe('Post /users', () => {
     it('It should make a post to users', (done) => {
       chai.request(server)
         .post('/users/:id')
@@ -68,7 +68,7 @@ describe('User API', () => {
     });
   });
 
-  describe('Patch /api/src/routes', () => {
+  describe('Patch /users/:id', () => {
     it('It should update an existing user.', (done) => {
       chai.request(server)
         .patch('/users/:id')
@@ -95,7 +95,7 @@ describe('User API', () => {
     });
   });
 
-  describe('Delete /api/src/routes', () => {
+  describe('Delete /users/:id', () => {
     it('It should delete an existing user.', (done) => {
       chai.request(server)
         .delete('/users/:id')
