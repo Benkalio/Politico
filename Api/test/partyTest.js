@@ -7,7 +7,7 @@ chai.should();
 chai.use(chaiHttp);
 
 describe('Party API', () => {
-  describe('Get /api/src/routes', () => {
+  describe('Get /parties', () => {
     it('It should Get all parties', (done) => {
       chai.request(server)
         .get('/parties')
@@ -24,7 +24,7 @@ describe('Party API', () => {
     });
   });
 
-  describe('Get /api/src/routes', () => {
+  describe('Get /parties/:id', () => {
     it('It should get party by id', (done) => {
       chai.request(server)
         .get('/parties/:id')
@@ -42,7 +42,7 @@ describe('Party API', () => {
   });
 
   // Post route
-  describe('Post /api/src/routes', () => {
+  describe('Post /parties', () => {
     it('It should make a post to parties', (done) => {
       chai.request(server)
         .post('/parties')
@@ -67,7 +67,7 @@ describe('Party API', () => {
     });
   });
 
-  describe('Patch /api/src/routes', () => {
+  describe('Patch /parties/:id', () => {
     it('It should update a party', (done) => {
       chai.request(server)
         .post('/parties/:id')
@@ -92,7 +92,7 @@ describe('Party API', () => {
     });
   });
 
-  describe('Delete /api/src/routes', () => {
+  describe('Delete /parties/:id', () => {
     it('It should delete a party.', (done) => {
       chai.request(server)
         .delete('/parties/:id')
