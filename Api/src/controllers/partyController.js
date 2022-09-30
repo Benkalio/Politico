@@ -14,7 +14,10 @@ const parties = [{
 }];
 
 export const getParties = (req, res) => {
-  res.send(data.Parties);
+  res.send({
+    status: 200,
+    data: data.Parties,
+  });
 };
 
 export const createParty = (req, res) => {
