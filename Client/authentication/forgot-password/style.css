@@ -35,6 +35,13 @@
 }
 @media (min-width: 48em) {
   .form-container {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .email > input {
+    width: 50%;
   }
 }
 
@@ -70,6 +77,7 @@ input {
 
 .email-link {
   margin: 20px 0;
+  border: none;
 }
 
 .reset-password {
