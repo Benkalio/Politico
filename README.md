@@ -1,6 +1,6 @@
 # Politico
 
-## Features for API Routes
+## Client Interface
 #### I have added support for making API calls on the following routes:
 
 - Government offices Route
@@ -20,4 +20,4 @@ This endpoint makes HTTP request to users data
 - I'm using Chai and Mocha for testing the routes, and Postman for HTTP request verification. 
 
 ### To be added
-- I will implement TravisCI for Continuous intergration in the next implementation (possibly in a separate branch).
+- I will implement TravisCI for Continuous integration in the next implementation (possibly in a separate branch).
