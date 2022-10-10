@@ -24,32 +24,30 @@
       <p>Politico</p>
     </div>
     <div class="container">
-      <div class="form-container">
-        <h1 class="forgot-password">Forgot your password?</h1>
+      <h1 class="forgot-password">Forgot your password?</h1>
+      <form class="form-container" method="post">
         <p>
           Enter the email address associated with your account and we'll send
           you a link to reset your password.
         </p>
-        <form action="submit">
-          <div class="email">
-            <input
-              type="email"
-              placeholder="Email Address"
-              class=""
-              id="email-address"
-            />
-          </div>
+        <div class="email">
+          <input
+            type="email"
+            placeholder="Email Address"
+            class=""
+            id="email-address"
+          />
+        </div>
 
-          <button class="email-link">
-            <a
-              href="/client/authentication/confirm-email/"
-              class="reset-password"
-              id="collect-email"
-              >Send Reset Password Link</a
-            >
-          </button>
-        </form>
-      </div>
+        <button class="email-link">
+          <a
+            href="/client/authentication/confirm-email/"
+            class="reset-password"
+            id="collect-email"
+            >Send Reset Password Link</a
+          >
+        </button>
+      </form>
     </div>
   </body>
 </html>
