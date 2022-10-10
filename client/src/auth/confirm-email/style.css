@@ -25,7 +25,7 @@ body {
 }
 @media (min-width: 27em) {
   .container {
-    width: 60%;
+    width: 50%;
   }
 }
 
@@ -49,13 +49,14 @@ h1 {
 }
 @media (min-width: 27em) {
   .container > p {
-    font-size: 1.2rem;
+    font-size: 2.6rem;
   }
 }
 
 .btn {
   margin-top: 20px;
   text-align: center;
+  padding: 10px;
 }
 
 .resend-email {
@@ -63,7 +64,6 @@ h1 {
   background-color: #156715;
   color: #fff;
   padding: 10px 24px;
-  border: none;
   border-radius: 50px;
 }
 @media (min-width: 27em) {
